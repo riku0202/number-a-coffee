@@ -55,6 +55,8 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
   );
 };
 
+export default Layout;
+
 const Style = styled.div`
   position: relative;
   width: 100%;
