@@ -18,6 +18,7 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
       </Head>
       <main>
         <Style>
+          <div className="layout-background" />
           <div className="layout-menu">
             <p>top</p>
             <p>about</p>
@@ -61,6 +62,15 @@ const Style = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
+
+  .layout-background {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to left, #ffffff40 60%, #ffffff39, #ffffff01);
+    z-index: 9;
+  }
 
   .layout-menu {
     position: fixed;
