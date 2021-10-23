@@ -18,13 +18,23 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
       </Head>
       <main>
         <Style>
-          <div className="layout-background" />
-          <div className="layout-menu">
-            <p>top</p>
-            <p>about</p>
-            <p>menu</p>
-            <p>access</p>
-            <p>social</p>
+          <div className="layout-background">
+            <div className="layout-menu">
+              <a href="#top">top</a>
+              <a href="#about">about</a>
+              <a href="#news">news</a>
+              <a href="#menu-content">menu</a>
+              <a href="#access">access</a>
+              <a href="#social">social</a>
+            </div>
+            <div className="svg">
+              <a href="https://www.instagram.com/numbera.coffee/">
+                {Instagram()}
+              </a>
+              <a href="https://www.facebook.com/Number-A-Coffee-1580096218922774/">
+                {Facebook()}
+              </a>
+            </div>
           </div>
           <div className="layout-image">
             <Image
@@ -35,10 +45,6 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
               height={260}
               quality={100}
             />
-          </div>
-          <div className="svg">
-            {Instagram()}
-            {Facebook()}
           </div>
           <div className="video-wrap">
             <h1 className="number-a-coffee">Number A Coffee</h1>
@@ -66,25 +72,37 @@ const Style = styled.div`
   .layout-background {
     position: fixed;
     top: 0;
-    width: 100%;
+    right: 0;
+    width: 90vw;
     height: 100px;
-    background: linear-gradient(to left, #ffffff40 60%, #ffffff39, #ffffff01);
+    background: linear-gradient(to left, #ffffff60 70%, #ffffff01);
     z-index: 9;
-  }
 
-  .layout-menu {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    margin: 20px 0 0;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
-    color: #000000;
-    width: 50vw;
-    font-size: 40px;
-    line-height: 45px;
-    z-index: 10;
+    .layout-menu {
+      position: absolute;
+      width: 60%;
+      top: 50%;
+      left: 20%;
+      transform: translateY(-60%);
+      display: flex;
+      justify-content: space-between;
+      color: #000000;
+      font-size: 40px;
+      line-height: 45px;
+    }
+
+    .svg {
+      position: absolute;
+      top: 50%;
+      right: 2%;
+      transform: translateY(-50%);
+
+      svg {
+        margin: 0 15px;
+        height: 50px;
+        fill: black;
+      }
+    }
   }
 
   .layout-image {
@@ -94,19 +112,6 @@ const Style = styled.div`
     z-index: 10;
     top: -10px;
     left: -10px;
-  }
-
-  .svg {
-    position: fixed;
-    z-index: 10;
-    top: 25px;
-    right: 30px;
-
-    svg {
-      margin: 0 20px;
-      height: 50px;
-      fill: black;
-    }
   }
 
   .video-wrap {
@@ -146,6 +151,11 @@ export const GlobalStyle = createGlobalStyle`
     text-align: justify;
     box-sizing: border-box;
     letter-spacing: 1px;
+  }
+
+  a{
+    text-decoration: none;
+    color: #111111;
   }
 
   body {

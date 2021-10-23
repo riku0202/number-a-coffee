@@ -13,11 +13,12 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Style>
-        <div className="title" />
+        <div id="top" className="title" />
         <div className="body">
+          {/* about */}
           <div className="about category">
             <div className="category-title">
-              <h2>about</h2>
+              <h2 id="about">about</h2>
               <div className="separate" />
             </div>
             <div className="content">
@@ -53,30 +54,55 @@ const Home = () => {
               </div>
             </div>
           </div>
+          {/* news */}
           <div className="news category">
             <div className="category-title">
-              <h2>news</h2>
+              <h2 id="news">news</h2>
               <div className="separate" />
             </div>
             <div className="content"></div>
           </div>
+          {/* menu */}
           <div className="menu category">
             <div className="category-title">
-              <h2>menu</h2>
+              <h2 id="menu-content">menu</h2>
               <div className="separate" />
             </div>
             <div className="content"></div>
           </div>
+          {/* access */}
           <div className="access category">
             <div className="category-title">
-              <h2>access</h2>
+              <h2 id="access">access</h2>
               <div className="separate" />
             </div>
-            <div className="content"></div>
+            <div className="content">
+              <iframe
+                width={805}
+                height={500}
+                loading="lazy"
+                allowFullScreen
+                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_4s9JQn5GmARkMDqF2kMCv8&key=AIzaSyAHuqkRtWban5qZEqO6sUWyw1Z__A8XDBI"
+              />
+              <div className="access-info">
+                <p className="access-title">Number A Coffee</p>
+                <p className="sub-title">住所</p>
+                <p className="access-content">
+                  〒436-0061
+                  <br />
+                  静岡県掛川市水垂936ｰ1
+                </p>
+                <p className="sub-title">営業時間</p>
+                <p className="access-content">0537-28-7242</p>
+                <p className="sub-title">電話番号</p>
+                <p className="access-content">0537-28-7242</p>
+              </div>
+            </div>
           </div>
+          {/* social */}
           <div className="social category">
             <div className="category-title">
-              <h2>social</h2>
+              <h2 id="social">social</h2>
               <div className="separate" />
             </div>
             <div className="content"></div>
@@ -120,10 +146,10 @@ const Style = styled.div`
     align-items: center;
     background-color: transparent;
 
-    // 共通のスタイル
+    // グローバルスタイル
     .category {
       margin: 10vh 0 10vh;
-      padding: 30px 0 30px;
+      padding: 50px 0 50px;
       width: 90vw;
       border-radius: 20px;
 
@@ -147,17 +173,16 @@ const Style = styled.div`
       }
 
       .content {
+        display: flex;
+        justify-content: center;
         margin: 50px 0 0;
         width: 100%;
       }
     }
 
-    // 個別のスタイル
+    // about
     .about {
       .content {
-        display: flex;
-        justify-content: center;
-
         .description {
           width: 600px;
           text-align: center;
@@ -189,15 +214,42 @@ const Style = styled.div`
       }
     }
 
+    // news
     .news {
       height: 35vh;
     }
+
+    // menu
     .menu {
       height: 35vh;
     }
+
+    // access
     .access {
-      height: 35vh;
+      .content {
+        .access-info {
+          margin: 0 0 0 50px;
+
+          .access-title {
+            font-size: 30px;
+            margin: 0 0 30px;
+          }
+
+          .sub-title {
+            margin: 20px 0 20px;
+            font-size: 20px;
+            text-decoration: underline;
+          }
+
+          .access-content {
+            line-height: 30px;
+            font-size: 23px;
+          }
+        }
+      }
     }
+
+    // social
     .social {
       height: 35vh;
     }
