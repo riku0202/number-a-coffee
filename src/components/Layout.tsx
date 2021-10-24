@@ -26,6 +26,7 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
               <a href="#menu-content">menu</a>
               <a href="#access">access</a>
               <a href="#social">social</a>
+              <a href="#gallery">gallery</a>
             </div>
             <div className="svg">
               <a href="https://www.instagram.com/numbera.coffee/">

@@ -93,7 +93,11 @@ const Home = () => {
                   静岡県掛川市水垂936ｰ1
                 </p>
                 <p className="sub-title">営業時間</p>
-                <p className="access-content">0537-28-7242</p>
+                <p className="access-content">
+                  平日9:00-17:00
+                  <br />
+                  土日祝7:30-17:00
+                </p>
                 <p className="sub-title">電話番号</p>
                 <p className="access-content">0537-28-7242</p>
               </div>
@@ -102,7 +106,15 @@ const Home = () => {
           {/* social */}
           <div className="social category">
             <div className="category-title">
-              <h2 id="social">social</h2>
+              <h2 id="social">Social</h2>
+              <div className="separate" />
+            </div>
+            <div className="content"></div>
+          </div>
+          {/* gallery */}
+          <div className="gallery category">
+            <div className="category-title">
+              <h2 id="gallery">Gallery</h2>
               <div className="separate" />
             </div>
             <div className="content"></div>
@@ -232,13 +244,11 @@ const Style = styled.div`
 
           .access-title {
             font-size: 30px;
-            margin: 0 0 30px;
           }
 
           .sub-title {
-            margin: 20px 0 20px;
+            margin: 40px 0 10px;
             font-size: 20px;
-            text-decoration: underline;
           }
 
           .access-content {
@@ -251,6 +261,11 @@ const Style = styled.div`
 
     // social
     .social {
+      height: 35vh;
+    }
+
+    // gallery
+    .gallery {
       height: 35vh;
     }
   }
