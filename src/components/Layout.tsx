@@ -40,24 +40,49 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
             </div>
           </div>
           {/* スマホ・タブレット用 */}
-          <div className="sp-menu">
-            <div
-              className={isOpen ? "menu-trigger active" : "menu-trigger"}
-              onClick={switchIsOpen}>
-              <span></span>
-              <span></span>
-              <span></span>
+          <div className="sp-background">
+            <div className="sp-menu">
+              <div
+                className={isOpen ? "menu-trigger active" : "menu-trigger"}
+                onClick={switchIsOpen}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
-          </div>
-          <div className="layout-image">
-            <Image
-              alt="NumberACoffee"
-              src="/numberAlog.png"
-              layout={"responsive"}
-              width={160}
-              height={260}
-              quality={100}
-            />
+            <div className="layout-image">
+              <Image
+                alt="NumberACoffee"
+                src="/numberAlog.png"
+                layout={"responsive"}
+                width={160}
+                height={260}
+                quality={100}
+              />
+            </div>
+            <div className={isOpen ? "open drawer" : "close drawer"}>
+              <a href="#top" className="top" onClick={switchIsOpen}>
+                top
+              </a>
+              <a href="#about" className="about" onClick={switchIsOpen}>
+                about
+              </a>
+              <a href="#news" className="news" onClick={switchIsOpen}>
+                news
+              </a>
+              <a href="#menu-content" className="menu" onClick={switchIsOpen}>
+                menu
+              </a>
+              <a href="#access" className="access" onClick={switchIsOpen}>
+                access
+              </a>
+              <a href="#social" className="social" onClick={switchIsOpen}>
+                social
+              </a>
+              <a href="#gallery" className="gallay" onClick={switchIsOpen}>
+                gallery
+              </a>
+            </div>
           </div>
           <div className="video-wrap">
             <h1 className="number-a-coffee">Number A Coffee</h1>
@@ -163,118 +188,188 @@ const Style = styled.div`
       display: none;
     }
 
-    // btnのスタイル
-    .sp-menu {
+    .sp-background {
       position: fixed;
-      top: 20px;
-      right: 20px;
+      width: 100%;
+      top: 0;
+      right: 0;
       z-index: 30;
 
-      .menu-trigger,
-      .menu-trigger span {
-        display: inline-block;
-        transition: all 0.4s;
-        box-sizing: border-box;
-      }
-      .menu-trigger {
-        position: relative;
-        width: 50px;
-        height: 44px;
-        background: none;
-        border: none;
-        appearance: none;
-        cursor: pointer;
-      }
-      .menu-trigger span {
+      // btnのスタイル
+      .sp-menu {
         position: absolute;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background-color: #000000;
-        border-radius: 4px;
-      }
-      .menu-trigger span:nth-of-type(1) {
-        top: 0;
-      }
-      .menu-trigger span:nth-of-type(2) {
         top: 20px;
-      }
-      .menu-trigger span:nth-of-type(3) {
-        bottom: 0;
+        right: 20px;
+
+        .menu-trigger,
+        .menu-trigger span {
+          display: inline-block;
+          transition: all 0.4s;
+          box-sizing: border-box;
+        }
+        .menu-trigger {
+          position: relative;
+          width: 50px;
+          height: 44px;
+          background: none;
+          border: none;
+          appearance: none;
+          cursor: pointer;
+        }
+        .menu-trigger span {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background-color: #000000;
+          border-radius: 4px;
+        }
+        .menu-trigger span:nth-of-type(1) {
+          top: 0;
+        }
+        .menu-trigger span:nth-of-type(2) {
+          top: 20px;
+        }
+        .menu-trigger span:nth-of-type(3) {
+          bottom: 0;
+        }
+
+        .menu-trigger span:nth-of-type(1) {
+          animation: menu-bar01 0.75s forwards;
+        }
+        @keyframes menu-bar01 {
+          0% {
+            transform: translateY(20px) rotate(45deg);
+          }
+          50% {
+            transform: translateY(20px) rotate(0);
+          }
+          100% {
+            transform: translateY(0) rotate(0);
+          }
+        }
+        .menu-trigger span:nth-of-type(2) {
+          transition: all 0.25s 0.25s;
+          opacity: 1;
+        }
+        .menu-trigger span:nth-of-type(3) {
+          animation: menu-bar02 0.75s forwards;
+        }
+        @keyframes menu-bar02 {
+          0% {
+            transform: translateY(-20px) rotate(-45deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(0);
+          }
+          100% {
+            transform: translateY(0) rotate(0);
+          }
+        }
+        .menu-trigger.active span:nth-of-type(1) {
+          animation: active-menu-bar01 0.75s forwards;
+        }
+        @keyframes active-menu-bar01 {
+          0% {
+            transform: translateY(0) rotate(0);
+          }
+          50% {
+            transform: translateY(20px) rotate(0);
+          }
+          100% {
+            transform: translateY(20px) rotate(45deg);
+          }
+        }
+        .menu-trigger.active span:nth-of-type(2) {
+          opacity: 0;
+        }
+        .menu-trigger.active span:nth-of-type(3) {
+          animation: active-menu-bar03 0.75s forwards;
+        }
+        @keyframes active-menu-bar03 {
+          0% {
+            transform: translateY(0) rotate(0);
+          }
+          50% {
+            transform: translateY(-20px) rotate(0);
+          }
+          100% {
+            transform: translateY(-20px) rotate(-45deg);
+          }
+        }
       }
 
-      .menu-trigger span:nth-of-type(1) {
-        animation: menu-bar01 0.75s forwards;
+      .layout-image {
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        top: -10px;
+        left: -15px;
       }
-      @keyframes menu-bar01 {
+
+      // アニメーション
+      @keyframes Fade-In {
         0% {
-          transform: translateY(20px) rotate(45deg);
-        }
-        50% {
-          transform: translateY(20px) rotate(0);
+          opacity: 0;
+          transform: translateY(30px);
         }
         100% {
-          transform: translateY(0) rotate(0);
+          opacity: 1;
+          transform: translateY(0);
         }
       }
-      .menu-trigger span:nth-of-type(2) {
-        transition: all 0.25s 0.25s;
+
+      @keyframes Fade-Out {
+        0% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+      }
+
+      .open {
         opacity: 1;
-      }
-      .menu-trigger span:nth-of-type(3) {
-        animation: menu-bar02 0.75s forwards;
-      }
-      @keyframes menu-bar02 {
-        0% {
-          transform: translateY(-20px) rotate(-45deg);
-        }
-        50% {
-          transform: translateY(-20px) rotate(0);
-        }
-        100% {
-          transform: translateY(0) rotate(0);
-        }
-      }
-      .menu-trigger.active span:nth-of-type(1) {
-        animation: active-menu-bar01 0.75s forwards;
-      }
-      @keyframes active-menu-bar01 {
-        0% {
-          transform: translateY(0) rotate(0);
-        }
-        50% {
-          transform: translateY(20px) rotate(0);
-        }
-        100% {
-          transform: translateY(20px) rotate(45deg);
-        }
-      }
-      .menu-trigger.active span:nth-of-type(2) {
-        opacity: 0;
-      }
-      .menu-trigger.active span:nth-of-type(3) {
-        animation: active-menu-bar03 0.75s forwards;
-      }
-      @keyframes active-menu-bar03 {
-        0% {
-          transform: translateY(0) rotate(0);
-        }
-        50% {
-          transform: translateY(-20px) rotate(0);
-        }
-        100% {
-          transform: translateY(-20px) rotate(-45deg);
-        }
-      }
-    }
+        animation: Fade-In 1s;
 
-    .layout-image {
-      position: fixed;
-      height: 100px;
-      width: 100px;
-      z-index: 10;
-      top: -10px;
-      left: -10px;
+        a {
+          opacity: 1;
+          margin-left: 0;
+        }
+      }
+
+      .close {
+        opacity: 0;
+        animation: Fade-Out 1s;
+
+        a {
+          margin: 0 0 20px;
+          opacity: 0;
+        }
+      }
+
+      .drawer {
+        position: absolute;
+        z-index: -10;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #ffffffa9;
+        padding: 70px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        font-size: 40px;
+
+        a {
+          display: block;
+          transition: all 0.5s 1s;
+        }
+      }
     }
 
     .video-wrap {
