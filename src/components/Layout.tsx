@@ -21,6 +21,16 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
         <Style>
           {/* pc用 */}
           <div className="pc-background">
+            <div className="layout-image">
+              <Image
+                alt="NumberACoffee"
+                src="/numberAlog.png"
+                layout={"responsive"}
+                width={160}
+                height={260}
+                quality={100}
+              />
+            </div>
             <div className="pc-menu">
               <a href="#top">top</a>
               <a href="#about">about</a>
@@ -141,6 +151,10 @@ const Style = styled.div`
         fill: black;
       }
     }
+  }
+
+  .sp-background {
+    display: none;
   }
 
   .layout-image {
@@ -336,7 +350,6 @@ const Style = styled.div`
 
         a {
           opacity: 1;
-          margin-left: 0;
         }
       }
 
@@ -345,7 +358,6 @@ const Style = styled.div`
         animation: Fade-Out 1s;
 
         a {
-          margin: 0 0 20px;
           opacity: 0;
         }
       }
@@ -367,7 +379,7 @@ const Style = styled.div`
 
         a {
           display: block;
-          transition: all 0.5s 1s;
+          transition: all 0.5s;
         }
       }
     }
@@ -379,12 +391,13 @@ const Style = styled.div`
       overflow: hidden;
 
       .number-a-coffee {
+        text-align: center;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 80px;
-        font-weight: bold;
+        line-height: 90px;
       }
 
       .video {

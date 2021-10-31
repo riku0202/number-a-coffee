@@ -287,8 +287,8 @@ const Style = styled.div`
 
       // グローバルスタイル
       .category {
-        margin: 10vh 0 10vh;
-        padding: 50px 0 50px;
+        margin: 5vh 0 5vh;
+        padding: 5vh 0 5vh;
         width: 90vw;
         border-radius: 20px;
 
@@ -300,7 +300,7 @@ const Style = styled.div`
           align-items: center;
 
           h2 {
-            font-size: 45px;
+            font-size: 35px;
           }
 
           .separate {
@@ -313,6 +313,7 @@ const Style = styled.div`
 
         .content {
           display: flex;
+          flex-direction: column;
           justify-content: center;
           margin: 50px 0 0;
           width: 100%;
