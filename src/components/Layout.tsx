@@ -203,6 +203,7 @@ const Style = styled.div`
     }
 
     .sp-background {
+      display: initial;
       position: fixed;
       width: 100%;
       top: 0;

@@ -1,10 +1,16 @@
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import Head from "next/head";
+import Image from "next/image";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
-import Head from "next/head";
-import Image from "next/image";
 
-const Home = () => {
+const Home = ({
+  menu,
+  news,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log(menu);
+  console.log(news);
   return (
     <>
       <Head>
@@ -121,19 +127,6 @@ const Home = () => {
           </div>
         </div>
       </Style>
-
-      {/*<footer className={styles.footer}>*/}
-      {/*  <a*/}
-      {/*    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"*/}
-      {/*    target="_blank"*/}
-      {/*    rel="noopener noreferrer"*/}
-      {/*  >*/}
-      {/*    Powered by{' '}*/}
-      {/*    <span className={styles.logo}>*/}
-      {/*      <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />*/}
-      {/*    </span>*/}
-      {/*  </a>*/}
-      {/*</footer>*/}
     </>
   );
 };
@@ -399,3 +392,41 @@ const Style = styled.div`
     }
   }
 `;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const api = process.env.API_KEY;
+  if (api === undefined) {
+    return {
+      props: {
+        menu: null,
+      },
+    };
+  }
+
+  const menuRes = await fetch(
+    "https://number-a-coffee.microcms.io/api/v1/menu",
+    {
+      headers: {
+        "X-API-KEY": api,
+      },
+    }
+  );
+  const newsRes = await fetch(
+    "https://number-a-coffee.microcms.io/api/v1/news",
+    {
+      headers: {
+        "X-API-KEY": api,
+      },
+    }
+  );
+
+  const menuJson = await menuRes.json();
+  const newsJson = await newsRes.json();
+
+  return {
+    props: {
+      menu: menuJson || null,
+      news: newsJson || null,
+    },
+  };
+};

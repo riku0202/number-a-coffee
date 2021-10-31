@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-    reactStrictMode: true,
+  reactStrictMode: true,
   experimental: {
     optimizeFonts: true,
   },
@@ -9,6 +9,6 @@ module.exports = {
     domains: ["images.microcms-assets.io"],
   },
   env: {
-    API_KEY: "9cba3744-936b-447c-b555-79bb51b00914",
+    API_KEY: "4af395f8-f929-426a-b0e2-05112403698a",
   },
-}
+};
