@@ -424,6 +424,7 @@ export const GlobalStyle = createGlobalStyle`
     text-align: justify;
     box-sizing: border-box;
     letter-spacing: 1px;
+    overflow-x:hidden;
   }
 
   a{

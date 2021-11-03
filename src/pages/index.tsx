@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import React, { ReactElement } from "react";
@@ -74,7 +74,24 @@ const Home = ({
               <h2 id="menu-content">menu</h2>
               <div className="separate" />
             </div>
-            <div className="content"></div>
+            <div className="content">
+              <ul>
+                {menu?.contents.map((props, index) => (
+                  <li key={index}>
+                    <p className="title">{props.image.url}</p>
+                    {props.image.url}
+                    <Image
+                      quality={100}
+                      layout="fixed"
+                      alt="image"
+                      src={props.image.url}
+                      width={props.image.width}
+                      height={props.image.height}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           {/* access */}
           <div className="access category">
@@ -393,7 +410,7 @@ const Style = styled.div`
   }
 `;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   const api = process.env.API_KEY;
   if (api === undefined) {
     return {
@@ -420,13 +437,89 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   );
 
-  const menuJson = await menuRes.json();
-  const newsJson = await newsRes.json();
+  const menuJson: Menu = await menuRes.json();
+  const newsJson: News = await newsRes.json();
 
   return {
     props: {
-      menu: menuJson || null,
-      news: newsJson || null,
+      menu: menuJson,
+      news: newsJson,
     },
   };
+};
+
+type News = {
+  contents: [
+    {
+      id: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+      revisedAt: string;
+      title: string;
+      contents: string;
+      image: {
+        url: string;
+        height: number;
+        width: number;
+      };
+    }
+  ];
+  totalCount: number;
+  offset: number;
+  limit: number;
+};
+
+type Menu = {
+  contents: [
+    {
+      id: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+      revisedAt: string;
+      name: string;
+      description: string;
+      price: number;
+      image: {
+        url: string;
+        height: number;
+        width: number;
+      };
+      category: {
+        id: string;
+        createdAt: string;
+        updatedAt: string;
+        publishedAt: string;
+        revisedAt: string;
+        name: string;
+      };
+    },
+    {
+      id: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+      revisedAt: string;
+      name: string;
+      description: string;
+      price: number;
+      image: {
+        url: string;
+        height: number;
+        width: number;
+      };
+      category: {
+        id: string;
+        createdAt: string;
+        updatedAt: string;
+        publishedAt: string;
+        revisedAt: string;
+        name: string;
+      };
+    }
+  ];
+  totalCount: number;
+  offset: number;
+  limit: number;
 };
