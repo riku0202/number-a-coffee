@@ -9,8 +9,6 @@ const Home = ({
   menu,
   news,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(menu);
-  console.log(news);
   return (
     <>
       <Head>
@@ -19,7 +17,7 @@ const Home = ({
         <link rel="icon" href="/numberAlog.png" />
       </Head>
       <Style>
-        <div id="top" className="title" />
+        <div id="top" className="top-title" />
         <div className="body">
           {/* about */}
           <div className="about category">
@@ -66,7 +64,30 @@ const Home = ({
               <h2 id="news">news</h2>
               <div className="separate" />
             </div>
-            <div className="content"></div>
+            <ul className="content">
+              {news?.contents.map((props, index) => (
+                <li key={index} className="item">
+                  <div className="image">
+                    <Image
+                      quality={100}
+                      layout="intrinsic"
+                      alt="image"
+                      src={props.image.url}
+                      width={props.image.width}
+                      height={props.image.height}
+                    />
+                  </div>
+                  <p className="item-title">{props.title}</p>
+                  <p className="item-created">
+                    {Intl.DateTimeFormat("ja-JP", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    }).format(new Date(props.createdAt))}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
           {/* menu */}
           <div className="menu category">
@@ -74,24 +95,30 @@ const Home = ({
               <h2 id="menu-content">menu</h2>
               <div className="separate" />
             </div>
-            <div className="content">
-              <ul>
-                {menu?.contents.map((props, index) => (
-                  <li key={index}>
-                    <p className="title">{props.image.url}</p>
-                    {props.image.url}
+            <ul className="content">
+              {menu?.contents.map((props, index) => (
+                <li key={index} className="item">
+                  <div className="image">
                     <Image
                       quality={100}
-                      layout="fixed"
+                      layout="intrinsic"
                       alt="image"
                       src={props.image.url}
                       width={props.image.width}
                       height={props.image.height}
                     />
-                  </li>
-                ))}
-              </ul>
-            </div>
+                  </div>
+                  <p className="item-title">{props.name}</p>
+                  <p className="item-created">
+                    {Intl.DateTimeFormat("ja-JP", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    }).format(new Date(props.createdAt))}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
           {/* access */}
           <div className="access category">
@@ -158,7 +185,7 @@ const Style = styled.div`
   position: relative;
   z-index: 2;
 
-  .title {
+  .top-title {
     height: 100vh;
   }
 
@@ -193,18 +220,16 @@ const Style = styled.div`
           width: 50px;
         }
       }
-
-      .content {
-        display: flex;
-        justify-content: center;
-        margin: 50px 0 0;
-        width: 100%;
-      }
     }
 
     // about
     .about {
       .content {
+        display: flex;
+        justify-content: center;
+        margin: 50px 0 0;
+        width: 100%;
+
         .description {
           width: 600px;
           text-align: center;
@@ -238,17 +263,69 @@ const Style = styled.div`
 
     // news
     .news {
-      height: 35vh;
+      .content {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 40px;
+        width: 100%;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .image {
+            width: 300px;
+          }
+
+          .item-title {
+            font-size: 20px;
+            margin: 30px 0;
+          }
+          .item-created {
+            align-self: flex-end;
+            font-size: 10px;
+          }
+        }
+      }
     }
 
     // menu
     .menu {
-      height: 35vh;
+      .content {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 40px;
+        width: 100%;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .image {
+            width: 300px;
+          }
+
+          .item-title {
+            font-size: 20px;
+            margin: 30px 0;
+          }
+          .item-created {
+            align-self: flex-end;
+            font-size: 10px;
+          }
+        }
+      }
     }
 
     // access
     .access {
       .content {
+        display: flex;
+        justify-content: center;
+        margin: 50px 0 0;
+        width: 100%;
         .access-info {
           margin: 0 0 0 50px;
 
