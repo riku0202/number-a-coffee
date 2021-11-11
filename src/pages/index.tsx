@@ -197,9 +197,9 @@ const Style = styled.div`
 
     // グローバルスタイル
     .category {
+      width: 90vw;
       margin: 10vh 0 10vh;
       padding: 50px 0 50px;
-      width: 90vw;
       border-radius: 20px;
 
       background-color: rgba(255, 255, 255, 0.9);
