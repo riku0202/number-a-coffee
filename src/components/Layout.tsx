@@ -122,21 +122,21 @@ const Style = styled.div`
     top: 0;
     right: 0;
     width: 90vw;
-    height: 100px;
+    height: 80px;
     background: linear-gradient(to left, #ffffff60 70%, #ffffff01);
     z-index: 9;
 
     .pc-menu {
       position: absolute;
-      width: 60%;
+      width: 70%;
       top: 50%;
-      left: 20%;
+      left: 15%;
       transform: translateY(-60%);
       display: flex;
       justify-content: space-between;
       color: #000000;
-      font-size: 40px;
-      line-height: 45px;
+      font-size: 35px;
+      line-height: 37px;
     }
 
     .svg {

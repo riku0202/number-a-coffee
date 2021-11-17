@@ -443,12 +443,10 @@ const Style = styled.div`
 
       // news
       .news {
-        height: 35vh;
       }
 
       // menu
       .menu {
-        height: 35vh;
       }
 
       // access
