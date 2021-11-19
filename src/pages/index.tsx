@@ -1,6 +1,7 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
@@ -88,6 +89,9 @@ const Home = ({
                 </li>
               ))}
             </ul>
+            <Link href="/menu" passHref>
+              <div className="more">メニューを見る</div>
+            </Link>
           </div>
           {/* menu */}
           <div className="menu category">
@@ -119,6 +123,9 @@ const Home = ({
                 </li>
               ))}
             </ul>
+            <Link href="/menu" passHref>
+              <div className="more">メニューを見る</div>
+            </Link>
           </div>
           {/* access */}
           <div className="access category">
@@ -288,6 +295,25 @@ const Style = styled.div`
           }
         }
       }
+      .more {
+        cursor: pointer;
+        position: relative;
+        text-align: right;
+        padding: 0 80px 0 0;
+        font-size: 20px;
+        line-height: 25px;
+        ::after {
+          position: absolute;
+          bottom: -10px;
+          right: 45px;
+          content: "";
+          width: 250px;
+          height: 25px;
+          border-bottom: solid 1px;
+          border-right: solid 1px;
+          transform: skew(45deg);
+        }
+      }
     }
 
     // menu
@@ -315,6 +341,26 @@ const Style = styled.div`
             align-self: flex-end;
             font-size: 10px;
           }
+        }
+      }
+
+      .more {
+        cursor: pointer;
+        position: relative;
+        text-align: right;
+        padding: 0 80px 0 0;
+        font-size: 20px;
+        line-height: 25px;
+        ::after {
+          position: absolute;
+          bottom: -10px;
+          right: 45px;
+          content: "";
+          width: 250px;
+          height: 25px;
+          border-bottom: solid 1px;
+          border-right: solid 1px;
+          transform: skew(45deg);
         }
       }
     }

@@ -1,5 +1,6 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
@@ -15,6 +16,23 @@ const Menu = ({ menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Style>
         <div className="body">
           <p className="title">MENU</p>
+          <ul className="container">
+            {menu?.contents.map((props, index) => (
+              <li key={index} className="item">
+                <div className="image">
+                  <Image
+                    alt="img"
+                    src={props.image.url}
+                    layout={"responsive"}
+                    width={props.image.width}
+                    height={props.image.height}
+                    quality={100}
+                  />
+                </div>
+                {props.name}
+              </li>
+            ))}
+          </ul>
         </div>
       </Style>
     </>
@@ -46,25 +64,40 @@ const Style = styled.div`
     padding: 40px 0 40px;
     border-radius: 20px;
 
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-
     .title {
       font-size: 40px;
+    }
+
+    .container {
+      margin: 30px 0 0;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      /* grid-template-rows: 100px 100px; */
+      gap: 10px;
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: aliceblue;
+        padding: 30px;
+
+        .image {
+          width: 200px;
+        }
+      }
     }
   }
 `;
 
 export const getStaticProps = async () => {
   const api = process.env.API_KEY;
-  if (api === undefined) {
+  if (api === undefined)
     return {
       props: {
         menu: null,
       },
     };
-  }
 
   const menuRes = await fetch(
     "https://number-a-coffee.microcms.io/api/v1/menu",
