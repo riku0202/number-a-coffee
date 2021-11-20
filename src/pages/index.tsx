@@ -113,13 +113,6 @@ const Home = ({
                     />
                   </div>
                   <p className="item-title">{props.name}</p>
-                  <p className="item-created">
-                    {Intl.DateTimeFormat("ja-JP", {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
-                    }).format(new Date(props.createdAt))}
-                  </p>
                 </li>
               ))}
             </ul>
@@ -134,13 +127,15 @@ const Home = ({
               <div className="separate" />
             </div>
             <div className="content">
-              <iframe
-                width={805}
-                height={500}
-                loading="lazy"
-                allowFullScreen
-                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_4s9JQn5GmARkMDqF2kMCv8&key=AIzaSyAHuqkRtWban5qZEqO6sUWyw1Z__A8XDBI"
-              />
+              <div className="map-wrapper">
+                <iframe
+                  width={805}
+                  height={500}
+                  loading="lazy"
+                  allowFullScreen
+                  src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_4s9JQn5GmARkMDqF2kMCv8&key=AIzaSyAHuqkRtWban5qZEqO6sUWyw1Z__A8XDBI"
+                />
+              </div>
               <div className="access-info">
                 <p className="access-title">Number A Coffee</p>
                 <p className="sub-title">住所</p>
@@ -166,7 +161,9 @@ const Home = ({
               <h2 id="social">Social</h2>
               <div className="separate" />
             </div>
-            <div className="content"></div>
+            <div className="content">
+              <p>ComingSoon...</p>
+            </div>
           </div>
           {/* gallery */}
           <div className="gallery category">
@@ -174,7 +171,9 @@ const Home = ({
               <h2 id="gallery">Gallery</h2>
               <div className="separate" />
             </div>
-            <div className="content"></div>
+            <div className="content">
+              <p>ComingSoon...</p>
+            </div>
           </div>
         </div>
       </Style>
@@ -394,12 +393,26 @@ const Style = styled.div`
 
     // social
     .social {
-      height: 35vh;
+      .content {
+        p {
+          text-align: center;
+          padding: 40px 0 20px;
+          font-size: 40px;
+          line-height: 45px;
+        }
+      }
     }
 
     // gallery
     .gallery {
-      height: 35vh;
+      .content {
+        p {
+          text-align: center;
+          padding: 40px 0 20px;
+          font-size: 40px;
+          line-height: 45px;
+        }
+      }
     }
   }
 
@@ -456,32 +469,32 @@ const Style = styled.div`
       // about
       .about {
         .content {
+          padding: 0 10px;
           .description {
-            width: 600px;
-            text-align: center;
-
+            width: 100%;
             p {
-              margin: 50px 0 0;
-              font-size: 40px;
-              line-height: 50px;
+              margin: 0;
+              text-align: center;
+              font-size: 20px;
+              line-height: 25px;
             }
           }
 
           .about-image {
-            width: 600px;
-            margin: 0 0 0 100px;
-
+            width: 100%;
+            margin: 0;
             .image01 {
+              width: 100%;
               position: relative;
-              width: 350px;
-              z-index: 1;
+              top: 0;
+              left: 0;
             }
 
             .image02 {
+              width: 100%;
               position: relative;
-              bottom: 80px;
-              left: 250px;
-              width: 400px;
+              top: 0;
+              left: 0;
             }
           }
         }
@@ -489,15 +502,37 @@ const Style = styled.div`
 
       // news
       .news {
+        .content {
+          padding: 0 20px;
+          .item {
+            .image {
+              width: 100%;
+            }
+          }
+        }
       }
 
       // menu
       .menu {
+        .content {
+          padding: 0 20px;
+          .item {
+            .image {
+              width: 100%;
+            }
+          }
+        }
       }
 
       // access
       .access {
         .content {
+          padding: 10px;
+          .map-wrapper iframe {
+            margin: 0 0 20px;
+            height: 100%;
+            width: 100%;
+          }
           .access-info {
             margin: 0 0 0 50px;
 
@@ -520,12 +555,26 @@ const Style = styled.div`
 
       // social
       .social {
-        height: 35vh;
+        .content {
+          p {
+            padding: 0 0 30px;
+            text-align: center;
+            font-size: 40px;
+            line-height: 45px;
+          }
+        }
       }
 
       // gallery
       .gallery {
-        height: 35vh;
+        .content {
+          p {
+            padding: 0 0 30px;
+            text-align: center;
+            font-size: 40px;
+            line-height: 45px;
+          }
+        }
       }
     }
   }
@@ -542,7 +591,7 @@ export const getStaticProps = async () => {
   }
 
   const menuRes = await fetch(
-    "https://number-a-coffee.microcms.io/api/v1/menu",
+    "https://number-a-coffee.microcms.io/api/v1/menu?limit=4",
     {
       headers: {
         "X-API-KEY": api,
@@ -550,7 +599,7 @@ export const getStaticProps = async () => {
     }
   );
   const newsRes = await fetch(
-    "https://number-a-coffee.microcms.io/api/v1/news",
+    "https://number-a-coffee.microcms.io/api/v1/news?limit=4",
     {
       headers: {
         "X-API-KEY": api,
