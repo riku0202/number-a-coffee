@@ -71,7 +71,8 @@ const Home = ({
                   <div className="image">
                     <Image
                       quality={100}
-                      layout="intrinsic"
+                      layout="fill"
+                      objectFit="cover"
                       alt="image"
                       src={props.image.url}
                       width={props.image.width}
@@ -272,16 +273,54 @@ const Style = styled.div`
       .content {
         display: flex;
         justify-content: space-evenly;
-        padding: 40px;
         width: 100%;
 
         .item {
           display: flex;
+          position: relative;
           flex-direction: column;
           align-items: center;
+          margin: 30px;
+          border-radius: 20px;
+          background-color: #ffffff;
+          width: 100%;
+          cursor: pointer;
+
+          transition: 0.2s ease;
+          box-shadow: 10px 10px 20px rgb(0 0 0 / 10%);
+
+          ::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+            border-radius: 20px;
+            box-sizing: border-box;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0;
+            transition: 0.3s ease;
+            transition-property: color, opacity;
+            pointer-events: none;
+          }
+
+          :hover {
+            box-shadow: 2px 2px 8px rgb(0 0 0 / 30%);
+
+            ::before {
+              opacity: 1;
+            }
+          }
 
           .image {
-            width: 300px;
+            position: relative;
+            width: 100%;
+            height: 250px;
+            & div {
+              border-radius: 20px 20px 0 0;
+            }
           }
 
           .item-title {
@@ -291,6 +330,7 @@ const Style = styled.div`
           .item-created {
             align-self: flex-end;
             font-size: 10px;
+            margin: 20px;
           }
         }
       }
