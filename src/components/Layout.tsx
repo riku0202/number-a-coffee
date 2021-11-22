@@ -92,6 +92,14 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
               <a href="#gallery" className="gallay" onClick={switchIsOpen}>
                 gallery
               </a>
+              <div className="svg">
+                <a href="https://www.instagram.com/numbera.coffee/">
+                  {Instagram()}
+                </a>
+                <a href="https://www.facebook.com/Number-A-Coffee-1580096218922774/">
+                  {Facebook()}
+                </a>
+              </div>
             </div>
           </div>
           <div className="video-wrap">
@@ -365,16 +373,29 @@ const Style = styled.div`
         width: 100vw;
         height: 100vh;
         background-color: #ffffffa9;
-        padding: 70px;
+        padding: 10vh 0 20vh;
         display: flex;
         justify-content: space-between;
         flex-direction: column;
         align-items: center;
-        font-size: 40px;
+        font-size: 30px;
 
         a {
           display: block;
           transition: all 0.5s;
+        }
+
+        .svg {
+          display: flex;
+          position: fixed;
+          bottom: 3%;
+          right: 5%;
+
+          svg {
+            margin: 0 5px;
+            height: 50px;
+            fill: black;
+          }
         }
       }
     }

@@ -515,7 +515,7 @@ const Style = styled.div`
       .category {
         margin: 5vh 0 5vh;
         padding: 5vh 0 5vh;
-        width: 90vw;
+        width: 93vw;
         border-radius: 20px;
 
         background-color: rgba(255, 255, 255, 0.9);
@@ -541,7 +541,7 @@ const Style = styled.div`
           display: flex;
           flex-direction: column;
           justify-content: center;
-          margin: 50px 0 0;
+          margin: 20px 0 0;
           width: 100%;
         }
       }
