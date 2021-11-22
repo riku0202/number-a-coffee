@@ -325,10 +325,12 @@ const Style = styled.div`
       // アニメーション
       @keyframes Fade-In {
         0% {
+          visibility: hidden;
           opacity: 0;
           transform: translateY(30px);
         }
         100% {
+          visibility: visible;
           opacity: 1;
           transform: translateY(0);
         }
@@ -336,31 +338,23 @@ const Style = styled.div`
 
       @keyframes Fade-Out {
         0% {
+          visibility: visible;
           opacity: 1;
           transform: translateY(0);
         }
         100% {
           opacity: 0;
+          visibility: hidden;
           transform: translateY(30px);
         }
       }
 
       .open {
-        opacity: 1;
-        animation: Fade-In 1s;
-
-        a {
-          opacity: 1;
-        }
+        animation: Fade-In 1s forwards;
       }
 
       .close {
-        opacity: 0;
-        animation: Fade-Out 1s;
-
-        a {
-          opacity: 0;
-        }
+        animation: Fade-Out 1s forwards;
       }
 
       .drawer {
