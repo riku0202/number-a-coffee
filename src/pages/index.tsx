@@ -70,10 +70,10 @@ const Home = ({
                 <li key={index} className="item">
                   <div className="image">
                     <Image
+                      alt="image"
                       quality={100}
                       layout="fill"
                       objectFit="cover"
-                      alt="image"
                       src={props.image.url}
                       width={props.image.width}
                       height={props.image.height}
@@ -619,10 +619,26 @@ const Style = styled.div`
 
             :hover {
               box-shadow: 2px 2px 8px rgb(0 0 0 / 30%);
-
-              ::before {
-              }
             }
+          }
+        }
+        .more {
+          cursor: pointer;
+          position: relative;
+          text-align: right;
+          padding: 0 0 0;
+          font-size: 15px;
+          line-height: 20px;
+          ::after {
+            position: absolute;
+            bottom: -10px;
+            right: 45px;
+            content: "";
+            width: 250px;
+            height: 25px;
+            border-bottom: solid 1px;
+            border-right: solid 1px;
+            transform: skew(45deg);
           }
         }
       }

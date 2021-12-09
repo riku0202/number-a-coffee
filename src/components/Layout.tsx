@@ -218,7 +218,6 @@ const Style = styled.div`
       right: 0;
       z-index: 30;
 
-      // btnのスタイル
       .sp-menu {
         position: absolute;
         top: 20px;
@@ -388,12 +387,12 @@ const Style = styled.div`
         .svg {
           display: flex;
           position: fixed;
-          bottom: 3%;
+          bottom: 6%;
           right: 5%;
 
           svg {
             margin: 0 5px;
-            height: 50px;
+            height: 45px;
             fill: black;
           }
         }
