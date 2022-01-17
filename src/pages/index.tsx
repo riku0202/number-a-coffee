@@ -190,6 +190,100 @@ Home.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
+const TestStyle = styled.div`
+  position: relative;
+  z-index: 2;
+
+  .top-title {
+    height: 100vh;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  @media (max-width: 959px) {
+    position: relative;
+    z-index: 2;
+
+    .title {
+      height: 100vh;
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: transparent;
+    }
+  }
+`;
+
+const BaseStyle = styled.div`
+  width: 90vw;
+  margin: 10vh 0 10vh;
+  padding: 50px 0 50px;
+  border-radius: 20px;
+
+  background-color: rgba(255, 255, 255, 0.9);
+
+  .category-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      font-size: 45px;
+    }
+
+    .separate {
+      margin: 10px 0 0;
+      background-color: #111111;
+      height: 2px;
+      width: 50px;
+    }
+  }
+
+  @media (max-width: 959px) {
+    .category {
+      margin: 5vh 0 5vh;
+      padding: 5vh 0 5vh;
+      width: 93vw;
+      border-radius: 20px;
+
+      background-color: rgba(255, 255, 255, 0.9);
+
+      .category-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+          font-size: 35px;
+        }
+
+        .separate {
+          margin: 10px 0 0;
+          background-color: #111111;
+          height: 2px;
+          width: 50px;
+        }
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 20px 0 0;
+        width: 100%;
+      }
+    }
+  }
+`;
+
 const Style = styled.div`
   position: relative;
   z-index: 2;
