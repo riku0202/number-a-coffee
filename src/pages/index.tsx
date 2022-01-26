@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { ReactElement } from "react";
+import { Tile } from "src/components/layout/Tile";
 import styled from "styled-components";
 import { Layout } from "../components/layout/Layout";
 
@@ -102,21 +103,14 @@ const Home = ({
             </div>
             <ul className="content">
               {menu?.contents.map((props, index) => (
-                <li key={index} className="item">
-                  <div className="image">
-                    <Image
-                      quality={100}
-                      layout="fill"
-                      objectFit="cover"
-                      alt="image"
-                      src={props.image.url}
-                      width={props.image.width}
-                      height={props.image.height}
-                    />
-                  </div>
-                  <p className="item-title">{props.name}</p>
-                  <p className="item-price">{`¥${props.price}`}</p>
-                </li>
+                <Tile
+                  key={index}
+                  width={props.image.width}
+                  height={props.image.height}
+                  url={props.image.url}
+                  name={props.name}
+                  price={props.price}
+                />
               ))}
             </ul>
             <Link href="/menu" passHref>
@@ -453,68 +447,15 @@ const Style = styled.div`
 
     // menu
     .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      padding: 50px 20px;
+
       .content {
         display: flex;
-        justify-content: space-evenly;
+        gap: 20px;
         width: 100%;
-
-        .item {
-          display: flex;
-          position: relative;
-          flex-direction: column;
-          align-items: center;
-          margin: 30px;
-          border-radius: 20px;
-          background-color: #ffffff;
-          width: 100%;
-          cursor: pointer;
-
-          transition: 0.2s ease;
-          box-shadow: 10px 10px 20px rgb(0 0 0 / 10%);
-
-          ::before {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 100%;
-            border: 1px solid black;
-            border-radius: 20px;
-            box-sizing: border-box;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            opacity: 0;
-            transition: 0.3s ease;
-            transition-property: color, opacity;
-            pointer-events: none;
-          }
-
-          :hover {
-            box-shadow: 2px 2px 8px rgb(0 0 0 / 30%);
-
-            ::before {
-              opacity: 1;
-            }
-          }
-
-          .image {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            & div {
-              border-radius: 20px 20px 0 0;
-            }
-          }
-
-          .item-title {
-            font-size: 20px;
-            margin: 20px 0 10px;
-          }
-          .item-price {
-            font-size: 15px;
-            margin: 0 0 20px;
-          }
-        }
       }
 
       .more {
@@ -878,6 +819,38 @@ export const getStaticProps = async () => {
   };
 };
 
+type Menu = {
+  contents: [
+    {
+      id: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+      revisedAt: string;
+      name: string;
+      japanese_name: string;
+      description: string;
+      price: number;
+      image: {
+        url: string;
+        height: number;
+        width: number;
+      };
+      category: {
+        id: string;
+        createdAt: string;
+        updatedAt: string;
+        publishedAt: string;
+        revisedAt: string;
+        name: string;
+      };
+    }
+  ];
+  totalCount: number;
+  offset: number;
+  limit: number;
+};
+
 type News = {
   contents: [
     {
@@ -892,60 +865,6 @@ type News = {
         url: string;
         height: number;
         width: number;
-      };
-    }
-  ];
-  totalCount: number;
-  offset: number;
-  limit: number;
-};
-
-type Menu = {
-  contents: [
-    {
-      id: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-      revisedAt: string;
-      name: string;
-      description: string;
-      price: number;
-      image: {
-        url: string;
-        height: number;
-        width: number;
-      };
-      category: {
-        id: string;
-        createdAt: string;
-        updatedAt: string;
-        publishedAt: string;
-        revisedAt: string;
-        name: string;
-      };
-    },
-    {
-      id: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-      revisedAt: string;
-      name: string;
-      description: string;
-      price: number;
-      image: {
-        url: string;
-        height: number;
-        width: number;
-      };
-      category: {
-        id: string;
-        createdAt: string;
-        updatedAt: string;
-        publishedAt: string;
-        revisedAt: string;
-        name: string;
       };
     }
   ];
