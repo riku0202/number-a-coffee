@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useReducer } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import { Facebook, Instagram } from "./SVG";
+import { Facebook, Instagram } from "../../constants/SVG";
 
 export const Layout = ({ children }: { children: JSX.Element }) => {
   const [isOpen, switchIsOpen] = useReducer((state) => !state, false);
@@ -12,10 +12,6 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
       <GlobalStyle />
       <Head>
         <title />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
-        />
       </Head>
       <main>
         <Style>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import { Layout } from "../components/Layout";
+import { Layout } from "../components/layout/Layout";
 
 const Home = ({
   menu,

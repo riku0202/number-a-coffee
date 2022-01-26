@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import { Layout } from "../components/Layout";
+import { Layout } from "../components/layout/Layout";
 
 const News = ({ news }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (

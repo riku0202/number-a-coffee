@@ -3,7 +3,7 @@ import Image from "next/image";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import styled from "styled-components";
-import { Layout } from "../../components/Layout";
+import { Layout } from "../../components/layout/Layout";
 
 const MenuId = () => {
   return <></>;
