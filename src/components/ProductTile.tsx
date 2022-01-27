@@ -81,7 +81,7 @@ const Style = styled.li`
   div {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 300px;
 
     img {
       border-radius: 20px 20px 0 0;

@@ -23,7 +23,6 @@ export const Outside = ({
 
 const Style = styled.div`
   width: 90vw;
-  margin: 5vh 0;
   border-radius: 20px;
 
   display: flex;

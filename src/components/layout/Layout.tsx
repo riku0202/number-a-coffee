@@ -28,13 +28,13 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
               />
             </div>
             <div className="pc-menu">
-              <a href="#top">top</a>
-              <a href="#about">about</a>
-              <a href="#news">news</a>
-              <a href="#menu-content">menu</a>
-              <a href="#access">access</a>
-              <a href="#social">social</a>
-              <a href="#gallery">gallery</a>
+              <a href="#Top">Top</a>
+              <a href="#About">About</a>
+              <a href="#News">News</a>
+              <a href="#Menu">Menu</a>
+              <a href="#Access">Access</a>
+              <a href="#Social">Social</a>
+              <a href="#Gallery">Gallery</a>
             </div>
             <div className="svg">
               <a href="https://www.instagram.com/numbera.coffee/">
