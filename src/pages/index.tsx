@@ -59,11 +59,11 @@ const Home = ({
                 />
               ))}
             </ul>
-            <ArrowLink>
-              <Link href="/menu" passHref>
+            <Link href="/menu" passHref>
+              <ArrowLink>
                 <div className="more">お知らせを見る</div>
-              </Link>
-            </ArrowLink>
+              </ArrowLink>
+            </Link>
           </NewsStyle>
           <MenuStyle title="Menu">
             <ul className="content">
@@ -79,11 +79,11 @@ const Home = ({
                 />
               ))}
             </ul>
-            <ArrowLink>
-              <Link href="/menu" passHref>
+            <Link href="/menu" passHref>
+              <ArrowLink>
                 <div className="more">メニューを見る</div>
-              </Link>
-            </ArrowLink>
+              </ArrowLink>
+            </Link>
           </MenuStyle>
           <AccessStyle title="Access">
             <div className="container">
@@ -132,6 +132,23 @@ export default Home;
 Home.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
+
+const Style = styled.div`
+  position: relative;
+  z-index: 2;
+
+  .top-title {
+    height: 100vh;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10vw;
+    background-color: transparent;
+  }
+`;
 
 const ArrowLink = styled.label`
   align-self: flex-end;
@@ -254,362 +271,8 @@ const GalleryStyle = styled(Outside)`
   font-size: 35px;
 `;
 
-const TestStyle = styled.div`
-  position: relative;
-  z-index: 2;
-
-  .top-title {
-    height: 100vh;
-  }
-
-  .body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: transparent;
-  }
-
-  @media (max-width: 959px) {
-    position: relative;
-    z-index: 2;
-
-    .title {
-      height: 100vh;
-    }
-
-    .body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: transparent;
-    }
-  }
-`;
-
-const BaseStyle = styled.div`
-  width: 90vw;
-  margin: 10vh 0 10vh;
-  padding: 50px 0 50px;
-  border-radius: 20px;
-
-  background-color: rgba(255, 255, 255, 0.9);
-
-  .category-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h2 {
-      font-size: 45px;
-    }
-
-    .separate {
-      margin: 10px 0 0;
-      background-color: #111111;
-      height: 2px;
-      width: 50px;
-    }
-  }
-
-  @media (max-width: 959px) {
-    .category {
-      margin: 5vh 0 5vh;
-      padding: 5vh 0 5vh;
-      width: 93vw;
-      border-radius: 20px;
-
-      background-color: rgba(255, 255, 255, 0.9);
-
-      .category-title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        h2 {
-          font-size: 35px;
-        }
-
-        .separate {
-          margin: 10px 0 0;
-          background-color: #111111;
-          height: 2px;
-          width: 50px;
-        }
-      }
-
-      .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 20px 0 0;
-        width: 100%;
-      }
-    }
-  }
-`;
-
-const Style = styled.div`
-  position: relative;
-  z-index: 2;
-
-  .top-title {
-    height: 100vh;
-  }
-
-  .body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10vw;
-    background-color: transparent;
-  }
-
-  // グローバルスタイル
-  /* .category {
-      width: 90vw;
-      margin: 10vh 0 10vh;
-      padding: 50px 0 50px;
-      border-radius: 20px;
-
-      background-color: rgba(255, 255, 255, 0.9);
-
-      .category-title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        h2 {
-          font-size: 45px;
-        }
-
-        .separate {
-          margin: 10px 0 0;
-          background-color: #111111;
-          height: 2px;
-          width: 50px;
-        }
-      }
-    }
-
-    // about
-    .about {
-      .content {
-        display: flex;
-        justify-content: center;
-        margin: 50px 0 0;
-        width: 100%;
-
-        .description {
-          width: 600px;
-          text-align: center;
-
-          p {
-            margin: 50px 0 0;
-            font-size: 40px;
-            line-height: 50px;
-          }
-        }
-
-        .about-image {
-          width: 600px;
-          margin: 0 0 0 100px;
-
-          .image01 {
-            position: relative;
-            width: 350px;
-            z-index: 1;
-          }
-
-          .image02 {
-            position: relative;
-            bottom: 80px;
-            left: 250px;
-            width: 400px;
-          }
-        }
-      }
-    }
-
-    // news
-    .news {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      padding: 50px 20px;
-
-      .content {
-        display: flex;
-        gap: 20px;
-        justify-content: space-between;
-
-        .item {
-          display: flex;
-          position: relative;
-          flex-direction: column;
-          align-items: center;
-          margin: 30px;
-          border-radius: 20px;
-          background-color: #ffffff;
-          width: 100%;
-          cursor: pointer;
-
-          transition: 0.2s ease;
-          box-shadow: 10px 10px 20px rgb(0 0 0 / 10%);
-
-          ::before {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 100%;
-            border: 1px solid black;
-            border-radius: 20px;
-            box-sizing: border-box;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            opacity: 0;
-            transition: 0.3s ease;
-            transition-property: color, opacity;
-            pointer-events: none;
-          }
-
-          :hover {
-            box-shadow: 2px 2px 8px rgb(0 0 0 / 30%);
-
-            ::before {
-              opacity: 1;
-            }
-          }
-
-          .image {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            & div {
-              border-radius: 20px 20px 0 0;
-            }
-          }
-
-          .item-title {
-            font-size: 20px;
-            margin: 30px 0;
-          }
-          .item-created {
-            align-self: flex-end;
-            font-size: 10px;
-            margin: 20px;
-          }
-        }
-      }
-      .more {
-        cursor: pointer;
-        position: relative;
-        text-align: right;
-        padding: 0 80px 0 0;
-        font-size: 20px;
-        line-height: 25px;
-        ::after {
-          position: absolute;
-          bottom: -10px;
-          right: 45px;
-          content: "";
-          width: 250px;
-          height: 25px;
-          border-bottom: solid 1px;
-          border-right: solid 1px;
-          transform: skew(45deg);
-        }
-      }
-    }
-
-    // menu
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      padding: 50px 20px;
-
-      .content {
-        display: flex;
-        gap: 20px;
-        width: 100%;
-      }
-
-      .more {
-        cursor: pointer;
-        position: relative;
-        text-align: right;
-        padding: 0 80px 0 0;
-        font-size: 20px;
-        line-height: 25px;
-        ::after {
-          position: absolute;
-          bottom: -10px;
-          right: 45px;
-          content: "";
-          width: 250px;
-          height: 25px;
-          border-bottom: solid 1px;
-          border-right: solid 1px;
-          transform: skew(45deg);
-        }
-      }
-    }
-
-    // access
-    .access {
-      .content {
-        display: flex;
-        justify-content: center;
-        margin: 50px 0 0;
-        width: 100%;
-        .access-info {
-          margin: 0 0 0 50px;
-
-          .access-title {
-            font-size: 30px;
-          }
-
-          .sub-title {
-            margin: 40px 0 10px;
-            font-size: 20px;
-          }
-
-          .access-content {
-            line-height: 30px;
-            font-size: 23px;
-          }
-        }
-      }
-    }
-
-    // social
-    .social {
-      .content {
-        p {
-          text-align: center;
-          padding: 40px 0 20px;
-          font-size: 40px;
-          line-height: 45px;
-        }
-      }
-    }
-
-    // gallery
-    .gallery {
-      .content {
-        p {
-          text-align: center;
-          padding: 40px 0 20px;
-          font-size: 40px;
-          line-height: 45px;
-        }
-      }
-    }
-  } */
-
-  // スマホ・タブレット
-  /* @media (max-width: 959px) {
+// スマホ・タブレット
+/* @media (max-width: 959px) {
     position: relative;
     z-index: 2;
 
@@ -856,7 +519,6 @@ const Style = styled.div`
       }
     }
   } */
-`;
 
 export const getStaticProps = async () => {
   const api = process.env.API_KEY;
