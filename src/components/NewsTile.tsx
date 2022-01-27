@@ -2,20 +2,20 @@ import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
-export const Tile = ({
+export const NewsTile = ({
   key,
   width,
   height,
   url,
   name,
-  price,
+  createdAt,
 }: {
   key: number;
   width: number;
   height: number;
   url: string;
   name: string;
-  price: number;
+  createdAt: string;
 }): JSX.Element => {
   return (
     <Style key={key}>
@@ -30,8 +30,14 @@ export const Tile = ({
           height={height}
         />
       </div>
-      <h4 className="item-title">{name}</h4>
-      <p className="item-price">{`¥${price}`}</p>
+      <h3>{name}</h3>
+      <p>
+        {Intl.DateTimeFormat("ja-JP", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        }).format(new Date(createdAt))}
+      </p>
     </Style>
   );
 };
@@ -41,6 +47,8 @@ const Style = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 15px;
+  padding: 0 0 15px;
   border-radius: 20px;
   background-color: #ffffff;
   width: 100%;
@@ -77,17 +85,16 @@ const Style = styled.li`
     position: relative;
     width: 100%;
     height: 250px;
+
     img {
       border-radius: 20px 20px 0 0;
     }
   }
 
-  h4 {
+  h3 {
     font-size: 20px;
-    margin: 20px 0 10px;
   }
   p {
-    font-size: 15px;
-    margin: 0 0 20px;
+    font-size: 10px;
   }
 `;

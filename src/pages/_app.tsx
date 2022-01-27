@@ -16,12 +16,6 @@ const MyBlog = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page);
   return getLayout(
     <StrictMode>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
-        />
-      </Head>
       <Component {...pageProps} />
     </StrictMode>
   );

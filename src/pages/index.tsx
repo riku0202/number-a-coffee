@@ -3,9 +3,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { ReactElement } from "react";
-import { Tile } from "src/components/layout/Tile";
+import Layout from "src/components/layout/Layout";
+import { NewsTile } from "src/components/NewsTile";
+import { Outside } from "src/components/Outside";
+import { ProductTile } from "src/components/ProductTile";
 import styled from "styled-components";
-import { Layout } from "../components/layout/Layout";
 
 const Home = ({
   menu,
@@ -21,102 +23,69 @@ const Home = ({
       <Style>
         <div id="top" className="top-title" />
         <div className="body">
-          {/* about */}
-          <div className="about category">
-            <div className="category-title">
-              <h2 id="about">about</h2>
-              <div className="separate" />
-            </div>
-            <div className="content">
-              <div className="description">
+          <AboutStyle title="About">
+            <div className="container">
+              <div>
+                <h3>進化するスペシャルティコーヒー</h3>
                 <p>
-                  テストです。テストです。テストです。テストです。
-                  テストです。テストです。テストです。テストです。
-                  テストです。テストです。テストです。テストです。
-                  テストです。テストです。テストです。テストです。
+                  その鍵となるのは生産者の努力、ロースターの情熱、そしてバリスタの探求心。
+                  <br />
+                  カップの中に表現されたフレーバーの多様性を感じてみて下さい。
                 </p>
               </div>
-              <div className="about-image">
-                <div className="image01">
-                  <Image
-                    quality={100}
-                    layout="responsive"
-                    alt="image"
-                    src="/image01.jpg"
-                    width="2000"
-                    height="1700"
-                  />
-                </div>
-                <div className="image02">
-                  <Image
-                    quality={100}
-                    layout="responsive"
-                    alt="image"
-                    src="/image02.jpg"
-                    width="2900"
-                    height="1800"
-                  />
-                </div>
+              <div>
+                <Image
+                  quality={100}
+                  layout="fill"
+                  objectFit="cover"
+                  alt="image"
+                  src="/image02.jpg"
+                  width="2900"
+                  height="1800"
+                />
               </div>
             </div>
-          </div>
-          {/* news */}
-          <div className="news category">
-            <div className="category-title">
-              <h2 id="news">news</h2>
-              <div className="separate" />
-            </div>
-            <ul className="content">
+          </AboutStyle>
+          <NewsStyle title="News">
+            <ul>
               {news?.contents.map((props, index) => (
-                <li key={index} className="item">
-                  <div className="image">
-                    <Image
-                      alt="image"
-                      quality={100}
-                      layout="fill"
-                      objectFit="cover"
-                      src={props.image.url}
-                      width={props.image.width}
-                      height={props.image.height}
-                    />
-                  </div>
-                  <p className="item-title">{props.title}</p>
-                  <p className="item-created">
-                    {Intl.DateTimeFormat("ja-JP", {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
-                    }).format(new Date(props.createdAt))}
-                  </p>
-                </li>
-              ))}
-            </ul>
-            <Link href="/menu" passHref>
-              <div className="more">メニューを見る</div>
-            </Link>
-          </div>
-          {/* menu */}
-          <div className="menu category">
-            <div className="category-title">
-              <h2 id="menu-content">menu</h2>
-              <div className="separate" />
-            </div>
-            <ul className="content">
-              {menu?.contents.map((props, index) => (
-                <Tile
+                <NewsTile
                   key={index}
                   width={props.image.width}
                   height={props.image.height}
                   url={props.image.url}
+                  name={props.title}
+                  createdAt={props.createdAt}
+                />
+              ))}
+            </ul>
+            <ArrowLink>
+              <Link href="/menu" passHref>
+                <div className="more">お知らせを見る</div>
+              </Link>
+            </ArrowLink>
+          </NewsStyle>
+          {/* menu */}
+          <MenuStyle title="Menu">
+            <ul className="content">
+              {menu?.contents.map((props, index) => (
+                <ProductTile
+                  key={index}
+                  width={props.image.width}
+                  height={props.image.height}
+                  url={props.image.url}
+                  translation={props.japanese_name}
                   name={props.name}
                   price={props.price}
                 />
               ))}
             </ul>
-            <Link href="/menu" passHref>
-              <div className="more">メニューを見る</div>
-            </Link>
-          </div>
+            <ArrowLink>
+              <Link href="/menu" passHref>
+                <div className="more">メニューを見る</div>
+              </Link>
+            </ArrowLink>
+          </MenuStyle>
           {/* access */}
           <div className="access category">
             <div className="category-title">
@@ -183,6 +152,88 @@ export default Home;
 Home.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
+
+const ArrowLink = styled.label`
+  align-self: flex-end;
+  width: 250px;
+  cursor: pointer;
+  position: relative;
+  padding: 0 80px 0 0;
+  font-size: 20px;
+
+  ::after {
+    position: absolute;
+    bottom: -10px;
+    right: 35px;
+    content: "";
+    width: 100%;
+    height: 25px;
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+    transform: skew(45deg);
+  }
+`;
+
+const AboutStyle = styled(Outside)`
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    div:nth-child(1) {
+      width: 100%;
+      display: flex;
+      gap: 30px;
+      padding: 0 20px;
+
+      h3 {
+        font-size: 25px;
+      }
+
+      p {
+        font-size: 17px;
+      }
+    }
+
+    div:nth-child(2) {
+      position: relative;
+      height: 400px;
+      width: 100%;
+
+      img {
+        border-radius: 20px;
+      }
+    }
+  }
+`;
+
+const NewsStyle = styled(Outside)`
+  padding: 50px 20px 30px;
+
+  label:nth-child(3) {
+    margin: 20px 0 0;
+  }
+
+  ul {
+    display: flex;
+    gap: 20px;
+  }
+`;
+
+const MenuStyle = styled(Outside)`
+  padding: 50px 20px 30px;
+
+  label:nth-child(3) {
+    margin: 20px 0 0;
+  }
+
+  ul {
+    display: flex;
+    gap: 20px;
+  }
+`;
 
 const TestStyle = styled.div`
   position: relative;
@@ -360,10 +411,15 @@ const Style = styled.div`
 
     // news
     .news {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      padding: 50px 20px;
+
       .content {
         display: flex;
-        justify-content: space-evenly;
-        width: 100%;
+        gap: 20px;
+        justify-content: space-between;
 
         .item {
           display: flex;

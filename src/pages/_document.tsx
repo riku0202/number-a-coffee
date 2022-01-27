@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Head, Html, Main, NextScript } from "next/document";
 
 const MyDocument = () => {
   const url = "<https://example.com>";
@@ -21,6 +21,10 @@ const MyDocument = () => {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
         />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
