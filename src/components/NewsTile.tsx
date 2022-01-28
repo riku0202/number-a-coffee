@@ -3,31 +3,23 @@ import React from "react";
 import styled from "styled-components";
 
 export const NewsTile = ({
-  key,
-  width,
-  height,
   url,
   name,
   createdAt,
 }: {
-  key: number;
-  width: number;
-  height: number;
   url: string;
   name: string;
   createdAt: string;
 }): JSX.Element => {
   return (
-    <Style key={key}>
+    <Style>
       <div>
         <Image
           quality={100}
           layout="fill"
-          objectFit="cover"
+          objectFit="contain"
           alt="image"
           src={url}
-          width={width}
-          height={height}
         />
       </div>
       <h3>{name}</h3>

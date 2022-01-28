@@ -139,7 +139,7 @@ const Style = styled.div`
       display: flex;
       justify-content: space-between;
       color: #000000;
-      font-size: 35px;
+      font-size: 2.1vw;
       line-height: 37px;
     }
 
@@ -151,7 +151,7 @@ const Style = styled.div`
 
       svg {
         margin: 0 15px;
-        height: 50px;
+        height: 2.3vw;
         fill: black;
       }
     }

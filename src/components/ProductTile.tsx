@@ -3,33 +3,26 @@ import React from "react";
 import styled from "styled-components";
 
 export const ProductTile = ({
-  key,
-  width,
-  height,
   url,
   translation,
   name,
   price,
 }: {
-  key: number;
-  width: number;
-  height: number;
   url: string;
   translation: string;
   name: string;
   price: number;
 }): JSX.Element => {
   return (
-    <Style key={key}>
+    <Style>
       <div>
         <Image
           quality={100}
           layout="fill"
           objectFit="cover"
+          objectPosition="top"
           alt="image"
           src={url}
-          width={width}
-          height={height}
         />
       </div>
       <p>{translation}</p>
@@ -41,6 +34,7 @@ export const ProductTile = ({
 
 const Style = styled.li`
   position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,7 +75,7 @@ const Style = styled.li`
   div {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 400px;
 
     img {
       border-radius: 20px 20px 0 0;

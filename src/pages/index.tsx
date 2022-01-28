@@ -19,8 +19,6 @@ const Home = ({
     <>
       <Head>
         <title>Number A Coffee</title>
-        <meta name="description" content="Number A Coffee" />
-        <link rel="icon" href="/numberAlog.png" />
       </Head>
       <Style>
         <div id="Top" className="top-title" />
@@ -42,19 +40,15 @@ const Home = ({
                   objectFit="cover"
                   alt="image"
                   src="/image02.jpg"
-                  width="2900"
-                  height="1800"
                 />
               </div>
             </div>
           </AboutStyle>
           <NewsStyle title="News">
             <ul>
-              {news?.contents.map((props, index) => (
+              {news?.contents.map((props) => (
                 <NewsTile
-                  key={index}
-                  width={props.image.width}
-                  height={props.image.height}
+                  key={props.id}
                   url={props.image.url}
                   name={props.title}
                   createdAt={props.createdAt}
@@ -72,8 +66,6 @@ const Home = ({
               {menu?.contents.map((props, index) => (
                 <ProductTile
                   key={index}
-                  width={props.image.width}
-                  height={props.image.height}
                   url={props.image.url}
                   translation={props.japanese_name}
                   name={props.name}
@@ -198,7 +190,7 @@ const AboutStyle = styled(Outside)`
 
     div:nth-child(2) {
       position: relative;
-      height: 400px;
+      height: 300px;
       width: 100%;
 
       img {
@@ -218,6 +210,9 @@ const NewsStyle = styled(Outside)`
   ul {
     display: flex;
     gap: 20px;
+    li {
+      width: 100%;
+    }
   }
 `;
 
