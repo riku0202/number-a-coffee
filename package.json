@@ -19,6 +19,7 @@
     "styled-reset": "^4.3.4"
   },
   "devDependencies": {
+    "@types/node": "^17.0.13",
     "@types/react": "17.0.38",
     "@types/styled-components": "^5.1.21",
     "babel-plugin-styled-components": "^2.0.2",

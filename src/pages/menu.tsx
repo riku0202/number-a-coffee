@@ -2,6 +2,7 @@ import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import React, { ReactElement } from "react";
+import { Menu as MenuType } from "src/types/menu";
 import styled from "styled-components";
 import { Layout } from "../components/layout/Layout";
 
@@ -73,7 +74,6 @@ const Style = styled.div`
       width: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      /* grid-template-rows: 100px 100px; */
       gap: 10px;
       .item {
         display: flex;
@@ -108,42 +108,11 @@ export const getStaticProps = async () => {
     }
   );
 
-  const menuJson: Menu = await menuRes.json();
+  const menuJson: MenuType = await menuRes.json();
 
   return {
     props: {
       menu: menuJson,
     },
   };
-};
-
-type Menu = {
-  contents: [
-    {
-      id: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-      revisedAt: string;
-      name: string;
-      description: string;
-      price: number;
-      image: {
-        url: string;
-        height: number;
-        width: number;
-      };
-      category: {
-        id: string;
-        createdAt: string;
-        updatedAt: string;
-        publishedAt: string;
-        revisedAt: string;
-        name: string;
-      };
-    }
-  ];
-  totalCount: number;
-  offset: number;
-  limit: number;
 };

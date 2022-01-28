@@ -7,6 +7,8 @@ import Layout from "src/components/layout/Layout";
 import { NewsTile } from "src/components/NewsTile";
 import { Outside } from "src/components/Outside";
 import { ProductTile } from "src/components/ProductTile";
+import { Menu } from "src/types/menu";
+import { News } from "src/types/news";
 import styled from "styled-components";
 
 const Home = ({
@@ -556,58 +558,4 @@ export const getStaticProps = async () => {
       news: newsJson,
     },
   };
-};
-
-type Menu = {
-  contents: [
-    {
-      id: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-      revisedAt: string;
-      name: string;
-      japanese_name: string;
-      description: string;
-      price: number;
-      image: {
-        url: string;
-        height: number;
-        width: number;
-      };
-      category: {
-        id: string;
-        createdAt: string;
-        updatedAt: string;
-        publishedAt: string;
-        revisedAt: string;
-        name: string;
-      };
-    }
-  ];
-  totalCount: number;
-  offset: number;
-  limit: number;
-};
-
-type News = {
-  contents: [
-    {
-      id: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-      revisedAt: string;
-      title: string;
-      contents: string;
-      image: {
-        url: string;
-        height: number;
-        width: number;
-      };
-    }
-  ];
-  totalCount: number;
-  offset: number;
-  limit: number;
 };
