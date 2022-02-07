@@ -190,7 +190,7 @@ const AboutStyle = styled(Outside)`
 
     div:nth-child(2) {
       position: relative;
-      height: 300px;
+      height: 450px;
       width: 100%;
 
       img {
