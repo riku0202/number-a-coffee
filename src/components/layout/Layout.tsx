@@ -4,6 +4,7 @@ import React, { useReducer } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import { Facebook, Instagram } from "../../constants/SVG";
+import { Footer } from "./Fotter";
 
 export const Layout = ({ children }: { children: JSX.Element }) => {
   const [isOpen, switchIsOpen] = useReducer((state) => !state, false);
@@ -108,6 +109,7 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
             </video>
           </div>
           {children}
+          <Footer />
         </Style>
       </main>
     </>

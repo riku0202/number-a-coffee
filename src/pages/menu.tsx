@@ -76,50 +76,6 @@ const OutSide = styled(OriginOutSide)`
   }
 `;
 
-// const Style = styled.div`
-//   position: relative;
-//   z-index: 2;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   background-color: transparent;
-
-//   .body {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     width: 90vw;
-//     height: 300px;
-//     background-color: rgba(255, 255, 255, 0.9);
-//     margin: 20vh 0 10vh;
-//     padding: 40px 0 40px;
-//     border-radius: 20px;
-
-//     .title {
-//       font-size: 40px;
-//     }
-
-//     .container {
-//       margin: 30px 0 0;
-//       width: 100%;
-//       display: grid;
-//       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-//       gap: 10px;
-//       .item {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//         background-color: aliceblue;
-//         padding: 30px;
-
-//         .image {
-//           width: 200px;
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export const getStaticProps = async () => {
   const api = process.env.API_KEY;
   if (api === undefined)
