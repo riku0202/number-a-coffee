@@ -1,16 +1,12 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { ReactElement } from "react";
 import { About } from "src/components/About";
 import { Access } from "src/components/Access";
-import Layout from "src/components/layout/Layout";
+import { Layout } from "src/components/layout/Layout";
 import { Menu } from "src/components/Menu";
 import { News } from "src/components/News";
-import { NewsTile } from "src/components/NewsTile";
 import { Outside } from "src/components/Outside";
-import { ProductTile } from "src/components/ProductTile";
 import { Menu as MenuType } from "src/types/menu";
 import { News as NewsType } from "src/types/news";
 import styled from "styled-components";

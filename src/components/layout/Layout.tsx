@@ -51,7 +51,8 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
             <div className="sp-menu">
               <div
                 className={isOpen ? "menu-trigger active" : "menu-trigger"}
-                onClick={switchIsOpen}>
+                onClick={switchIsOpen}
+              >
                 <span></span>
                 <span></span>
                 <span></span>
