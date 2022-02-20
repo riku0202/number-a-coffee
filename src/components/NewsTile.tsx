@@ -19,7 +19,7 @@ export const NewsTile = ({
           layout="fill"
           objectFit="contain"
           alt="image"
-          src={url}
+          src={`${url}?q=70&w=300`}
         />
       </div>
       <h3>{name}</h3>
