@@ -102,10 +102,7 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
           <div className="video-wrap">
             <h1 className="number-a-coffee">Number A Coffee</h1>
             <video className="video" playsInline muted autoPlay loop>
-              <source
-                type="video/mp4"
-                src="./custom_movie_01.mp4.samesize.mp4"
-              />
+              <source type="video/mp4" src="./numberA.mp4" />
             </video>
           </div>
           {children}
