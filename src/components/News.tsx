@@ -17,23 +17,28 @@ export const News = ({ news }: { news: NewsType }) => {
           />
         ))}
       </ul>
-      <ArrowLink path="/menu" text="お知らせを見る" />
+      <ArrowLink path="/menu" text="お知らせ一覧を見る" />
     </NewsStyle>
   );
 };
 
 const NewsStyle = styled(Outside)`
-  padding: 50px 20px 30px;
-
-  label:nth-child(3) {
-    margin: 20px 0 0;
-  }
-
   ul {
     display: flex;
     gap: 20px;
     li {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 959px) {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      li {
+        width: 100%;
+      }
     }
   }
 `;

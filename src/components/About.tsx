@@ -11,7 +11,10 @@ export const About = () => {
           <p>
             その鍵となるのは生産者の
             <br />
-            努力、ロースターの情熱、そしてバリスタの探求心。
+            努力、ロースターの情熱、
+            <br />
+            そしてバリスタの探求心。
+            <br />
             <br />
             カップの中に表現されたフレーバーの多様性を感じてみて下さい。
           </p>
@@ -21,6 +24,7 @@ export const About = () => {
             quality={100}
             layout="fill"
             objectFit="cover"
+            objectPosition="bottom"
             alt="image"
             src="/image02.jpg"
           />
@@ -57,11 +61,48 @@ const AboutStyle = styled(Outside)`
 
     div:nth-child(2) {
       position: relative;
-      height: 450px;
+      height: 470px;
       width: 100%;
 
       img {
         border-radius: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 959px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      div:nth-child(1) {
+        width: 100%;
+        display: flex;
+        gap: 30px;
+        text-align: center;
+        line-height: 20px;
+
+        h3 {
+          font-size: 4vw;
+          font-weight: bold;
+        }
+
+        p {
+          font-size: 15px;
+        }
+      }
+
+      div:nth-child(2) {
+        position: relative;
+        height: 270px;
+        width: 100%;
+
+        img {
+          border-radius: 20px;
+        }
       }
     }
   }

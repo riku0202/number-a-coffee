@@ -24,14 +24,16 @@ export const Menu = ({ menu }: { menu: MenuType }) => {
 };
 
 const MenuStyle = styled(Outside)`
-  padding: 50px 20px 30px;
-
-  label:nth-child(3) {
-    margin: 20px 0 0;
-  }
-
   ul {
     display: flex;
     gap: 20px;
+  }
+
+  @media (max-width: 959px) {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
   }
 `;
