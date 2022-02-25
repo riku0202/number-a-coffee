@@ -1,13 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
 import { Facebook, Instagram } from "../../constants/SVG";
+import { TransitionsModal } from "../mui/Modal";
 import { Footer } from "./Fotter";
 
 export const Layout = ({ children }: { children: JSX.Element }) => {
-  const [isOpen, switchIsOpen] = useReducer((state) => !state, false);
+  // const [isOpen, switchIsOpen] = useReducer((state) => !state, false);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <GlobalStyle />
@@ -51,7 +53,8 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
             <div className="sp-menu">
               <div
                 className={isOpen ? "menu-trigger active" : "menu-trigger"}
-                onClick={switchIsOpen}>
+                onClick={() => setIsOpen(!isOpen)}
+              >
                 <span></span>
                 <span></span>
                 <span></span>
@@ -67,37 +70,39 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
                 quality={100}
               />
             </div>
-            <div className={isOpen ? "open drawer" : "close drawer"}>
-              <a href="#top" className="top" onClick={switchIsOpen}>
-                top
-              </a>
-              <a href="#about" className="about" onClick={switchIsOpen}>
-                about
-              </a>
-              <a href="#news" className="news" onClick={switchIsOpen}>
-                news
-              </a>
-              <a href="#menu-content" className="menu" onClick={switchIsOpen}>
-                menu
-              </a>
-              <a href="#access" className="access" onClick={switchIsOpen}>
-                access
-              </a>
-              <a href="#social" className="social" onClick={switchIsOpen}>
-                social
-              </a>
-              <a href="#gallery" className="gallay" onClick={switchIsOpen}>
-                gallery
-              </a>
-              <div className="svg">
-                <a href="https://www.instagram.com/numbera.coffee/">
-                  {Instagram()}
+            <TransitionsModal isOpen={isOpen} close={() => setIsOpen(false)}>
+              <>
+                <a href="#top" className="top" onClick={close}>
+                  top
                 </a>
-                <a href="https://www.facebook.com/Number-A-Coffee-1580096218922774/">
-                  {Facebook()}
+                <a href="#about" className="about" onClick={close}>
+                  about
                 </a>
-              </div>
-            </div>
+                <a href="#news" className="news" onClick={close}>
+                  news
+                </a>
+                <a href="#menu-content" className="menu" onClick={close}>
+                  menu
+                </a>
+                <a href="#access" className="access" onClick={close}>
+                  access
+                </a>
+                <a href="#social" className="social" onClick={close}>
+                  social
+                </a>
+                <a href="#gallery" className="gallay" onClick={close}>
+                  gallery
+                </a>
+                <div className="svg">
+                  <a href="https://www.instagram.com/numbera.coffee/">
+                    {Instagram()}
+                  </a>
+                  <a href="https://www.facebook.com/Number-A-Coffee-1580096218922774/">
+                    {Facebook()}
+                  </a>
+                </div>
+              </>
+            </TransitionsModal>
           </div>
           <div className="video-wrap">
             <h1 className="number-a-coffee">Number A Coffee</h1>
