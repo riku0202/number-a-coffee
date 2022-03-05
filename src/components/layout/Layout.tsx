@@ -72,25 +72,49 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
             </div>
             <TransitionsModal isOpen={isOpen} close={() => setIsOpen(false)}>
               <>
-                <a href="#top" className="top" onClick={close}>
+                <a href="#top" className="top" onClick={() => setIsOpen(false)}>
                   top
                 </a>
-                <a href="#about" className="about" onClick={close}>
+                <a
+                  href="#about"
+                  className="about"
+                  onClick={() => setIsOpen(false)}
+                >
                   about
                 </a>
-                <a href="#news" className="news" onClick={close}>
+                <a
+                  href="#news"
+                  className="news"
+                  onClick={() => setIsOpen(false)}
+                >
                   news
                 </a>
-                <a href="#menu-content" className="menu" onClick={close}>
+                <a
+                  href="#menu-content"
+                  className="menu"
+                  onClick={() => setIsOpen(false)}
+                >
                   menu
                 </a>
-                <a href="#access" className="access" onClick={close}>
+                <a
+                  href="#access"
+                  className="access"
+                  onClick={() => setIsOpen(false)}
+                >
                   access
                 </a>
-                <a href="#social" className="social" onClick={close}>
+                <a
+                  href="#social"
+                  className="social"
+                  onClick={() => setIsOpen(false)}
+                >
                   social
                 </a>
-                <a href="#gallery" className="gallay" onClick={close}>
+                <a
+                  href="#gallery"
+                  className="gallay"
+                  onClick={() => setIsOpen(false)}
+                >
                   gallery
                 </a>
                 <div className="svg">
