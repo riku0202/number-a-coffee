@@ -5,20 +5,20 @@ import type { AppProps } from "next/app";
 import type { NextPage } from "next";
 
 type NextPageWithLayout = NextPage & {
-  getLayout?: (page: ReactElement) => ReactNode;
+    getLayout?: (page: ReactElement) => ReactNode;
 };
 
 type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
+    Component: NextPageWithLayout;
 };
 
 const MyBlog = ({ Component, pageProps }: AppPropsWithLayout) => {
-  const getLayout = Component.getLayout ?? ((page) => page);
-  return getLayout(
-    <StrictMode>
-      <Component {...pageProps} />
-    </StrictMode>
-  );
+    const getLayout = Component.getLayout ?? ((page) => page);
+    return getLayout(
+        <StrictMode>
+            <Component {...pageProps} />
+        </StrictMode>,
+    );
 };
 
 export default MyBlog;

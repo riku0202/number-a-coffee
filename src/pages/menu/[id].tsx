@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Layout } from "../../components/layout/Layout";
 
 const MenuId = () => {
-  return <></>;
+    return <></>;
 };
 export default MenuId;
 

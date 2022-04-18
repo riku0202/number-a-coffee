@@ -1,6 +1,6 @@
 import React from "react";
 
 const MenuId = () => {
-  return <></>;
+    return <></>;
 };
 export default MenuId;
