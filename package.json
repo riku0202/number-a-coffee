@@ -1,35 +1,39 @@
 {
-  "name": "number-a-coffee",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "lint": "eslint src --ext .ts,tsx && prettier --write src",
-    "tsc": "tsc --noEmit",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/material": "^5.6.3",
-    "axios": "^0.27.2",
-    "next": "12.1.5",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-transition-group": "^4.4.2",
-    "styled-components": "^5.3.5",
-    "styled-reset": "^4.3.4"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.30",
-    "@types/react": "18.0.8",
-    "@types/styled-components": "^5.1.25",
-    "babel-plugin-styled-components": "^2.0.7",
-    "eslint": "8.14.0",
-    "eslint-config-next": "12.1.5",
-    "eslint-config-prettier": "^8.5.0",
-    "prettier": "^2.6.2",
-    "typescript": "4.6.4"
-  }
+    "name": "number-a-coffee",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "lint": "eslint src --ext .ts,tsx && prettier --write src",
+        "tsc": "tsc --noEmit",
+        "build": "next build",
+        "start": "next start",
+        "format:eslint": "eslint --fix src/**/*.{ts,tsx}",
+        "format:prettier": "prettier --write .",
+        "format": "run-s format:eslint format:prettier"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.9.3",
+        "@emotion/styled": "^11.9.3",
+        "@mui/material": "^5.8.4",
+        "axios": "^0.27.2",
+        "next": "12.1.6",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-transition-group": "^4.4.2",
+        "styled-components": "^5.3.5",
+        "styled-reset": "^4.4.1"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.0",
+        "@types/react": "18.0.14",
+        "@types/styled-components": "^5.1.25",
+        "babel-plugin-styled-components": "^2.0.7",
+        "eslint": "8.18.0",
+        "eslint-config-next": "12.1.6",
+        "eslint-config-prettier": "^8.5.0",
+        "npm-run-all": "4.1.5",
+        "prettier": "^2.7.1",
+        "typescript": "4.7.4"
+    }
 }

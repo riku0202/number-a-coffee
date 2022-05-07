@@ -1,5 +1,4 @@
-import { ReactElement, ReactNode, StrictMode } from "react";
-import React from "react";
+import React, { ReactElement, ReactNode, StrictMode } from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import type { NextPage } from "next";
