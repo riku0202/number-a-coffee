@@ -1,7 +1,7 @@
-import React, { ReactElement, ReactNode, StrictMode } from "react";
-import Head from "next/head";
-import type { AppProps } from "next/app";
 import type { NextPage } from "next";
+import type { AppProps } from "next/app";
+import { ReactElement, ReactNode } from "react";
+import "../../public/reset.css";
 
 type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
@@ -13,11 +13,7 @@ type AppPropsWithLayout = AppProps & {
 
 const MyBlog = ({ Component, pageProps }: AppPropsWithLayout) => {
     const getLayout = Component.getLayout ?? ((page) => page);
-    return getLayout(
-        <StrictMode>
-            <Component {...pageProps} />
-        </StrictMode>,
-    );
+    return getLayout(<Component {...pageProps} />);
 };
 
 export default MyBlog;

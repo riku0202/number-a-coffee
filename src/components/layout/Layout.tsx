@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
 import { Facebook, Instagram } from "../../constants/SVG";
@@ -148,7 +148,7 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
                             autoPlay
                             loop
                         >
-                            <source type="video/mp4" src="./numberA.mp4" />
+                            <source type="video/mp4" src="/numberA.mp4" />
                         </video>
                     </div>
                     {children}

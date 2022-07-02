@@ -4,9 +4,11 @@
         "next/core-web-vitals",
         "plugin:import/recommended",
         "plugin:import/warnings",
-        "prettier"
+        "prettier",
+        "plugin:storybook/recommended"
     ],
     "rules": {
-        "@next/next/no-img-element": "off"
+        "@next/next/no-img-element": "off",
+        "import/named": "off"
     }
 }
