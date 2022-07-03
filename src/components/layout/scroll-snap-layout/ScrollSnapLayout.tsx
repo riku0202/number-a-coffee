@@ -1,31 +1,22 @@
 import styled from "styled-components";
 
-export const ScrollSnapLayout = () => {
-    return (
-        <Wrap>
-            <Item></Item>
-            <Item2></Item2>
-            <Item></Item>
-            <Item2></Item2>
-            <Item></Item>
-            <Item2></Item2>
-        </Wrap>
-    );
+type Props = {
+    renderBody: (props: { Item: typeof Item }) => JSX.Element;
 };
 
-const Wrap = styled.div`
+export const ScrollSnapLayout = (props: Props) => {
+    return <List>{props.renderBody({ Item: Item })}</List>;
+};
+
+const List = styled.div`
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    width: 100vw;
     height: 100vh;
 `;
 
 const Item = styled.div`
     scroll-snap-align: start;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background-color: red;
-`;
-
-const Item2 = styled(Item)`
-    background-color: blue;
 `;

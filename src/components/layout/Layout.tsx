@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { reset } from "styled-reset";
 import { Facebook, Instagram } from "../../constants/SVG";
 import { TransitionsModal } from "../mui/Modal";
 import { Footer } from "./Fotter";
@@ -470,7 +469,6 @@ const Style = styled.div`
 `;
 
 export const GlobalStyle = createGlobalStyle`
-  ${reset}
   html {
     margin: 0;
     font-family: 'Sawarabi Mincho', sans-serif;

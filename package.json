@@ -24,8 +24,7 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-transition-group": "^4.4.2",
-        "styled-components": "^5.3.5",
-        "styled-reset": "^4.4.1"
+        "styled-components": "^5.3.5"
     },
     "devDependencies": {
         "@babel/core": "^7.18.6",

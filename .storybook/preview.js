@@ -9,6 +9,27 @@ export const parameters = {
             date: /Date$/,
         },
     },
+    backgrounds: {
+        default: "white",
+        values: [
+            {
+                name: "white",
+                value: "white",
+            },
+            {
+                name: "black",
+                value: "black",
+            },
+            {
+                name: "twitter",
+                value: "#00aced",
+            },
+            {
+                name: "facebook",
+                value: "#3b5998",
+            },
+        ],
+    },
 };
 
 const OriginalNextImage = NextImage.default;
