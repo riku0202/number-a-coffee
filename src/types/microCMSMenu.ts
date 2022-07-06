@@ -1,5 +1,5 @@
-export type Menu = {
-    contents: [
+export type MicroCMSMenu = {
+    contents: 
         {
             id: string;
             createdAt: string;
@@ -7,7 +7,7 @@ export type Menu = {
             publishedAt: string;
             revisedAt: string;
             name: string;
-            japanese_name: string;
+            japaneseName: string;
             description: string;
             price: number;
             image: {
@@ -23,8 +23,8 @@ export type Menu = {
                 revisedAt: string;
                 name: string;
             };
-        },
-    ];
+            isFeatured: boolean;
+        }[],
     totalCount: number;
     offset: number;
     limit: number;

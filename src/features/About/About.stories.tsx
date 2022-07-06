@@ -9,3 +9,27 @@ export const Primary: ComponentStoryObj<typeof About> = {
     },
     render: (args) => <About {...args} />,
 };
+
+export const Sp: ComponentStoryObj<typeof About> = {
+    parameters: {
+        viewport: {
+            defaultViewport: "iphone12",
+        },
+    },
+    args: {
+        text: "example",
+    },
+    render: (args) => <About {...args} />,
+};
+
+export const Tab: ComponentStoryObj<typeof About> = {
+    parameters: {
+        viewport: {
+            defaultViewport: "ipad12p",
+        },
+    },
+    args: {
+        text: "example",
+    },
+    render: (args) => <About {...args} />,
+};

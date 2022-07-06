@@ -1,17 +1,20 @@
+import { useMediaQuery } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
 type Props = {
     title: string;
     children: React.ReactNode;
-};
+} & React.ComponentProps<typeof Wrap>;
 
 export const Container = (props: Props) => {
+    const isPc = useMediaQuery("(min-width:920px)");
+    const { title, children, ...rest } = props;
     return (
-        <Wrap>
-            <Title>{props.title}</Title>
-            <Separate />
-            {props.children}
+        <Wrap {...rest}>
+            <Title isPc={isPc}>{title}</Title>
+            <Separate isPc={isPc} />
+            {children}
         </Wrap>
     );
 };
@@ -27,12 +30,13 @@ const Wrap = styled.div`
     justify-content: center;
 `;
 
-const Title = styled.h2`
-    font-size: 45px;
+const Title = styled.h2<{ isPc: boolean }>`
+    font-size: ${(props) => (props.isPc ? "45px" : "30px")};
+    /* font-size: 45px; */
 `;
 
-const Separate = styled.div`
-    margin: 10px 0 0;
+const Separate = styled.div<{ isPc: boolean }>`
+    margin: ${(props) => (props.isPc ? "10px" : "5px")} 0 0;
     background-color: #111111;
     height: 2px;
     width: 50px;

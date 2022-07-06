@@ -1,10 +1,11 @@
+import { MicroCMSMenu as MenuType } from "src/types/microCMSMenu";
 import styled from "styled-components";
 import { ArrowLink } from "./ArrowLink";
 import { Outside } from "./Outside";
 import { ProductTile } from "./ProductTile";
-import { Menu as MenuType } from "src/types/menu";
 
 export const Menu = ({ menu }: { menu: MenuType }) => {
+    console.log(menu);
     return (
         <MenuStyle title="Menu">
             <ul className="content">
@@ -12,7 +13,7 @@ export const Menu = ({ menu }: { menu: MenuType }) => {
                     <ProductTile
                         key={index}
                         url={props.image.url}
-                        translation={props.japanese_name}
+                        translation={props.japaneseName}
                         name={props.name}
                         price={props.price}
                     />

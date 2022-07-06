@@ -1,10 +1,9 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { Outside as OriginOutSide } from "src/components/Outside";
 import { ProductTile } from "src/components/ProductTile";
-import { Menu as MenuType } from "src/types/menu";
+import { MicroCMSMenu as MenuType } from "src/types/microCMSMenu";
 import styled from "styled-components";
 import { Layout } from "../components/layout/Layout";
 
@@ -21,7 +20,7 @@ const Menu = ({ menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
                             <ProductTile
                                 key={index}
                                 url={props.image.url}
-                                translation={props.japanese_name}
+                                translation={props.japaneseName}
                                 name={props.name}
                                 price={props.price}
                             />
@@ -100,5 +99,6 @@ export const getStaticProps = async () => {
         props: {
             menu: menuJson,
         },
+        revalidate: 10, // In seconds
     };
 };

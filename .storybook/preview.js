@@ -1,3 +1,4 @@
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import * as NextImage from "next/image";
 import "../public/reset.css";
 
@@ -29,6 +30,9 @@ export const parameters = {
                 value: "#3b5998",
             },
         ],
+    },
+    viewport: {
+        viewports: INITIAL_VIEWPORTS,
     },
 };
 

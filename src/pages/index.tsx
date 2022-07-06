@@ -5,17 +5,12 @@ import { About } from "src/components/About";
 import { Access } from "src/components/Access";
 import { Layout } from "src/components/layout/Layout";
 import { Menu } from "src/components/Menu";
-import { News } from "src/components/News";
 import { Outside } from "src/components/Outside";
-import { Menu as MenuType } from "src/types/menu";
-import { News as NewsType } from "src/types/news";
+import { MicroCMSMenu } from "src/types/microCMSMenu";
 import styled from "styled-components";
 
-const Home = ({
-    menu,
-    news,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-    if (!news || !menu) throw new Error("news is undefined");
+const Home = ({ menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
+    if (!menu) throw new Error("news is undefined");
 
     return (
         <>
@@ -26,7 +21,6 @@ const Home = ({
                 <div id="Top" className="top-title" />
                 <div className="body">
                     <About />
-                    <News news={news} />
                     <Menu menu={menu} />
                     <Access />
                     <SocialStyle title="Social">
@@ -77,13 +71,12 @@ const GalleryStyle = styled(Outside)`
 
 export const getStaticProps = async () => {
     const api = process.env.API_KEY;
-    if (api === undefined) {
+    if (!api)
         return {
             props: {
                 menu: null,
             },
         };
-    }
 
     const menuRes = await fetch(
         "https://number-a-coffee.microcms.io/api/v1/menu?limit=4",
@@ -93,22 +86,13 @@ export const getStaticProps = async () => {
             },
         },
     );
-    const newsRes = await fetch(
-        "https://number-a-coffee.microcms.io/api/v1/news?limit=4",
-        {
-            headers: {
-                "X-API-KEY": api,
-            },
-        },
-    );
+    const menuJson: MicroCMSMenu = await menuRes.json();
 
-    const menuJson: MenuType = await menuRes.json();
-    const newsJson: NewsType = await newsRes.json();
-
+    console.log(menuJson);
     return {
         props: {
             menu: menuJson,
-            news: newsJson,
         },
+        revalidate: 10,
     };
 };
