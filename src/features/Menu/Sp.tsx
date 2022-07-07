@@ -43,7 +43,7 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
     gap: 30px;
-    height: 500px;
+    height: 400px;
     width: 100%;
 `;
 

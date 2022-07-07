@@ -4,8 +4,8 @@ import { ReactElement } from "react";
 import { About } from "src/components/About";
 import { Access } from "src/components/Access";
 import { Layout } from "src/components/layout/Layout";
-import { Menu } from "src/components/Menu";
 import { Outside } from "src/components/Outside";
+import { Menu } from "src/features/Menu";
 import { MicroCMSMenu } from "src/types/microCMSMenu";
 import styled from "styled-components";
 
@@ -21,7 +21,7 @@ const Home = ({ menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <div id="Top" className="top-title" />
                 <div className="body">
                     <About />
-                    <Menu menu={menu} />
+                    <Menu {...menu} />
                     <Access />
                     <SocialStyle title="Social">
                         <h3>ComingSoon...</h3>

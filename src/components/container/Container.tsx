@@ -32,7 +32,6 @@ const Wrap = styled.div`
 
 const Title = styled.h2<{ isPc: boolean }>`
     font-size: ${(props) => (props.isPc ? "45px" : "30px")};
-    /* font-size: 45px; */
 `;
 
 const Separate = styled.div<{ isPc: boolean }>`
