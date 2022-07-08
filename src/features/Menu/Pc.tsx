@@ -34,11 +34,11 @@ export const Pc = (props: MicroCMSMenu) => {
 };
 
 const StyledContainer = styled(Container)`
-width: 90vw;
+    width: 90vw;
 `;
 
 const Content = styled.div`
-    height: 500px;
+    height: 70vh;
     width: 100%;
 `;
 

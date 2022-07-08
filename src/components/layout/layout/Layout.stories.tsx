@@ -1,12 +1,10 @@
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 import styled from "styled-components";
-import { ScrollSnapLayout } from "./ScrollSnapLayout";
+import { Layout } from "./Layout";
 
-export default { component: ScrollSnapLayout } as ComponentMeta<
-    typeof ScrollSnapLayout
->;
+export default { component: Layout } as ComponentMeta<typeof Layout>;
 
-export const Primary: ComponentStoryObj<typeof ScrollSnapLayout> = {
+export const Primary: ComponentStoryObj<typeof Layout> = {
     args: {
         renderBody: ({ Item }) => (
             <Body>

@@ -1,24 +1,18 @@
 import Head from "next/head";
-import Image from "next/image";
 import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { Facebook, Instagram } from "../../constants/SVG";
-import { TransitionsModal } from "../mui/Modal";
 import { Footer } from "./Fotter";
 
 export const Layout = ({ children }: { children: JSX.Element }) => {
-    // const [isOpen, switchIsOpen] = useReducer((state) => !state, false);
     const [isOpen, setIsOpen] = useState(false);
+
     return (
         <>
             <GlobalStyle />
-            <Head>
-                <title />
-            </Head>
             <main>
                 <Style>
                     {/* pc用 */}
-                    <div className="pc-background">
+                    {/* <div className="pc-background">
                         <div className="layout-image">
                             <Image
                                 alt="NumberACoffee"
@@ -46,9 +40,9 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
                                 {Facebook()}
                             </a>
                         </div>
-                    </div>
+                    </div> */}
                     {/* スマホ・タブレット用 */}
-                    <div className="sp-background">
+                    {/* <div className="sp-background">
                         <div className="sp-menu">
                             <div
                                 className={
@@ -137,7 +131,7 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
                                 </div>
                             </>
                         </TransitionsModal>
-                    </div>
+                    </div> */}
                     <div className="video-wrap">
                         <h1 className="number-a-coffee">Number A Coffee</h1>
                         <video

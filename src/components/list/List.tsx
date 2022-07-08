@@ -41,7 +41,6 @@ const ImageItem = (props: ImageItemProps) => {
     const cols = props.featured ? 2 : 1;
     const rows = props.featured ? 2 : 1;
 
-    const isPc = MUI.useMediaQuery("(min-width:920px)");
     return (
         <MUI.ImageListItem cols={cols} rows={rows}>
             <MUI.CardActionArea>
@@ -59,14 +58,15 @@ const ImageItem = (props: ImageItemProps) => {
                     subtitle={props.subTitle}
                     sx={{
                         ".MuiImageListItemBar-titleWrap": {
-                            padding: isPc ? "13px" : "2px",
+                            padding: "1vw",
                         },
                         ".MuiImageListItemBar-title": {
-                            fontSize: isPc ? "20px" : "5px",
-                            lineHeight: isPc ? "24px" : "20px",
+                            fontSize: "1.2rem",
+                            lineHeight: "unset",
                         },
                         ".MuiImageListItemBar-subtitle": {
-                            fontSize: isPc ? "15px" : "3px",
+                            fontSize: "1rem",
+                            lineHeight: "unset",
                         },
                     }}
                 />

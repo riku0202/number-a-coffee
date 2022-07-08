@@ -20,9 +20,9 @@ export const Container = (props: Props) => {
 };
 
 const Wrap = styled.div`
-    width: 100%;
+    width: 90vw;
     border-radius: 20px;
-    padding: 20px;
+    padding: 20px 20px 40px;
     background-color: rgba(255, 255, 255, 0.9);
     display: flex;
     flex-direction: column;
