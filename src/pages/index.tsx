@@ -3,8 +3,8 @@ import { ReactElement } from "react";
 import { Access } from "src/components/Access";
 import { Layout } from "src/components/layout/layout/index";
 import { ScrollSnapLayout } from "src/components/layout/scroll-snap-layout";
-import { Outside } from "src/components/Outside";
-import { Menu } from "src/features/Menu";
+import { About } from "src/features/about";
+import { Menu } from "src/features/menu";
 import { MicroCMSMenu } from "src/types/microCMSMenu";
 import styled from "styled-components";
 
@@ -17,6 +17,10 @@ const Home = ({ menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <ScrollSnapLayout
                     renderBody={({ Item }) => (
                         <>
+                            <Item />
+                            <Item>
+                                <About />
+                            </Item>
                             <Item>
                                 <Menu {...menu} />
                             </Item>
@@ -26,18 +30,6 @@ const Home = ({ menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
                         </>
                     )}
                 />
-                {/* <div id="Top" className="top-title" />
-                <div className="body">
-                    <About />
-                    <Menu {...menu} />
-                    <Access />
-                    <SocialStyle title="Social">
-                        <h3>ComingSoon...</h3>
-                    </SocialStyle>
-                    <GalleryStyle title="Gallery">
-                        <h3>ComingSoon...</h3>
-                    </GalleryStyle>
-                </div> */}
             </Style>
         </>
     );
@@ -67,16 +59,6 @@ const Style = styled.div`
     }
 `;
 
-const SocialStyle = styled(Outside)`
-    align-items: center;
-    font-size: 35px;
-`;
-
-const GalleryStyle = styled(Outside)`
-    align-items: center;
-    font-size: 35px;
-`;
-
 export const getStaticProps = async () => {
     const api = process.env.API_KEY;
     if (!api)
@@ -96,7 +78,6 @@ export const getStaticProps = async () => {
     );
     const menuJson: MicroCMSMenu = await menuRes.json();
 
-    console.log(menuJson);
     return {
         props: {
             menu: menuJson,

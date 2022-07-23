@@ -12,17 +12,32 @@ export const Layout = (props: Props) => {
                 <title>Number A Coffee</title>
             </Head>
             <main>
-                <VideoContainer>
-                    <Title className="number-a-coffee">Number A Coffee</Title>
-                    <video className="video" playsInline muted autoPlay loop>
+                <Background>
+                    <Video playsInline muted autoPlay loop>
                         <source type="video/mp4" src="/numberA.mp4" />
-                    </video>
-                </VideoContainer>
+                    </Video>
+                    <Title>Number A Coffee</Title>
+                </Background>
                 {props.children}
             </main>
         </>
     );
 };
+
+const Background = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+`;
+
+const Video = styled.video`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+`;
 
 const Title = styled.h1`
     text-align: center;
@@ -31,13 +46,4 @@ const Title = styled.h1`
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 5vw;
-`;
-
-const VideoContainer = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
 `;

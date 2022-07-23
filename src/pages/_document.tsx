@@ -1,39 +1,42 @@
-import { Head, Html, Main, NextScript } from "next/document";
+import Document, { DocumentContext } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
-const MyDocument = () => {
-    const url = "<https://example.com>";
-    const title = "Demo Next.js";
-    const description = "Demo of Next.js";
+export default class MyDocument extends Document {
+    static async getInitialProps(ctx: DocumentContext) {
+        const sheet = new ServerStyleSheet();
+        const originalRenderPage = ctx.renderPage;
 
-    return (
-        <Html lang="ja-JP">
-            <Head>
-                <meta name="description" content={description} />
-                <meta name="theme-color" content="#333" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content={title} />
-                <meta property="og:url" content={url} />
-                <meta property="og:description" content={description} />
-                <meta property="og:site_name" content={title} />
-                <meta property="og:image" content={`${url}/ogp.png`} />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="format-detection" content="telephone=no" />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
-                />
-                <link
-                    rel="stylesheet"
-                    href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
-                />
-                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-            </Head>
-            <body>
-                <Main />
-                <NextScript />
-            </body>
-        </Html>
-    );
-};
+        try {
+            ctx.renderPage = () =>
+                originalRenderPage({
+                    enhanceApp: (App) => (props) =>
+                        sheet.collectStyles(<App {...props} />),
+                });
 
-export default MyDocument;
+            const initialProps = await Document.getInitialProps(ctx);
+            return {
+                ...initialProps,
+                styles: [initialProps.styles, sheet.getStyleElement()],
+            };
+        } finally {
+            sheet.seal();
+        }
+    }
+}
+
+// const MyDocument = () => {
+//     const url = "<https://example.com>";
+//     const title = "Demo Next.js";
+//     const description = "Demo of Next.js";
+
+//     return (
+//         <Html lang="ja-JP">
+//             <body>
+//                 <Main />
+//                 <NextScript />
+//             </body>
+//         </Html>
+//     );
+// };
+
+// export default MyDocument;

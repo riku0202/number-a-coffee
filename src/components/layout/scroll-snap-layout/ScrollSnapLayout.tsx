@@ -22,4 +22,5 @@ const Item = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 100px 0;
 `;

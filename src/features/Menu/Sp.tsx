@@ -36,6 +36,7 @@ export const Sp = (props: MicroCMSMenu) => {
 
 const StyledContainer = styled(Container)`
     padding: 5px;
+    width: 100%;
 `;
 
 const Content = styled.div`

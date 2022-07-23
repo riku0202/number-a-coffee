@@ -25,9 +25,7 @@ type SubheaderProps = {
     children: React.ReactNode;
 };
 const Subheader = (props: SubheaderProps) => (
-    <MUI.ImageListItem cols={4}>
-        <MUI.ListSubheader component="div">{props.children}</MUI.ListSubheader>
-    </MUI.ImageListItem>
+    <MUI.ImageListItem cols={4}>{props.children}</MUI.ImageListItem>
 );
 
 type ImageItemProps = {

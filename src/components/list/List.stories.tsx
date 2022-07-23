@@ -1,3 +1,4 @@
+import * as MUI from "@mui/material";
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 import { List } from "./";
 
@@ -7,7 +8,18 @@ export const Primary: ComponentStoryObj<typeof List> = {
     args: {
         renderItems: ({ ImageItem, Subheader }) => (
             <>
-                <Subheader>December</Subheader>
+                <Subheader>
+                    <MUI.Tabs
+                        value={1}
+                        onChange={() => console.log("")}
+                        aria-label="basic tabs example"
+                    >
+                        <MUI.Tab label="Item One" />
+                        <MUI.Tab label="Item Two" />
+                        <MUI.Tab label="Item Three" />
+                    </MUI.Tabs>
+                    December
+                </Subheader>
                 {itemData.map((item, index) => {
                     return (
                         <ImageItem

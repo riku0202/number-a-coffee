@@ -7,7 +7,7 @@ export const Primary: ComponentStoryObj<typeof About> = {
     args: {
         text: "example",
     },
-    render: (args) => <About {...args} />,
+    render: () => <About />,
 };
 
 export const Sp: ComponentStoryObj<typeof About> = {
@@ -19,7 +19,7 @@ export const Sp: ComponentStoryObj<typeof About> = {
     args: {
         text: "example",
     },
-    render: (args) => <About {...args} />,
+    render: () => <About />,
 };
 
 export const Tab: ComponentStoryObj<typeof About> = {
@@ -31,5 +31,5 @@ export const Tab: ComponentStoryObj<typeof About> = {
     args: {
         text: "example",
     },
-    render: (args) => <About {...args} />,
+    render: () => <About />,
 };

@@ -1,10 +1,8 @@
 import Image from "next/image";
-import React from "react";
 import { Container } from "src/components/container";
 import styled from "styled-components";
-import { Props } from "./About";
 
-export const Pc = (props: Props) => {
+export const Pc = () => {
     return (
         <StyledContainer title="About">
             <Content>
@@ -37,8 +35,7 @@ export const Pc = (props: Props) => {
 };
 
 const StyledContainer = styled(Container)`
-    width: 80vw;
-    max-height: 80vw;
+    width: 90vw;
 `;
 
 const Content = styled.div`
@@ -46,8 +43,8 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
     gap: 30px;
-    height: 500px;
     width: 100%;
+    padding: 30px 0;
 `;
 
 const ImageContainer = styled.div`

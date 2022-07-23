@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { Container } from "src/components/container";
 import styled from "styled-components";
-import { Props } from "./About";
 
-export const Sp = (props: Props) => {
+export const Sp = () => {
     return (
         <StyledContainer title="About">
             <Content>

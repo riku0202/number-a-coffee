@@ -5,7 +5,6 @@ import { Outside } from "./Outside";
 import { ProductTile } from "./ProductTile";
 
 export const Menu = ({ menu }: { menu: MenuType }) => {
-    console.log(menu);
     return (
         <MenuStyle title="Menu">
             <ul className="content">

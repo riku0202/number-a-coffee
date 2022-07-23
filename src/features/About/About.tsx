@@ -1,10 +1,8 @@
 import { useMediaQuery } from "@mui/material";
-import { Sp } from "./Sp";
 import { Pc } from "./Pc";
+import { Sp } from "./Sp";
 
-export type Props = { text: string };
-
-export const About = (props: Props) => {
+export const About = () => {
     const isPc = useMediaQuery("(min-width:920px)");
-    return <>{isPc ? <Pc {...props} /> : <Sp {...props} />}</>;
+    return <>{isPc ? <Pc /> : <Sp />}</>;
 };
