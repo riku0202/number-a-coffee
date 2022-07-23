@@ -1,16 +1,16 @@
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
-import { About } from "./Access";
+import { Access } from "./Access";
 
-export default { component: About } as ComponentMeta<typeof About>;
+export default { component: Access } as ComponentMeta<typeof Access>;
 
-export const Primary: ComponentStoryObj<typeof About> = {
+export const Primary: ComponentStoryObj<typeof Access> = {
     args: {
         text: "example",
     },
-    render: () => <About />,
+    render: () => <Access />,
 };
 
-export const Sp: ComponentStoryObj<typeof About> = {
+export const Sp: ComponentStoryObj<typeof Access> = {
     parameters: {
         viewport: {
             defaultViewport: "iphone12",
@@ -19,10 +19,10 @@ export const Sp: ComponentStoryObj<typeof About> = {
     args: {
         text: "example",
     },
-    render: () => <About />,
+    render: () => <Access />,
 };
 
-export const Tab: ComponentStoryObj<typeof About> = {
+export const Tab: ComponentStoryObj<typeof Access> = {
     parameters: {
         viewport: {
             defaultViewport: "ipad12p",
@@ -31,5 +31,5 @@ export const Tab: ComponentStoryObj<typeof About> = {
     args: {
         text: "example",
     },
-    render: () => <About />,
+    render: () => <Access />,
 };

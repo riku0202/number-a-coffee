@@ -1,9 +1,9 @@
 import { InferGetStaticPropsType } from "next";
 import { ReactElement } from "react";
-import { Access } from "src/components/Access";
 import { Layout } from "src/components/layout/layout/index";
 import { ScrollSnapLayout } from "src/components/layout/scroll-snap-layout";
 import { About } from "src/features/about";
+import { Access } from "src/features/access";
 import { Menu } from "src/features/menu";
 import { MicroCMSMenu } from "src/types/microCMSMenu";
 import styled from "styled-components";
