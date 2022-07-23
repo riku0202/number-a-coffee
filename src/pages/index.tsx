@@ -2,9 +2,9 @@ import { InferGetStaticPropsType } from "next";
 import { ReactElement } from "react";
 import { Layout } from "src/components/layout/layout/index";
 import { ScrollSnapLayout } from "src/components/layout/scroll-snap-layout";
-// import { About } from "src/features/about";
-// import { Access } from "src/features/access";
-// import { Menu } from "src/features/menu";
+import { About } from "src/features/about";
+import { Access } from "src/features/access";
+import { Menu } from "src/features/menu";
 import { MicroCMSMenu } from "src/types/microCMSMenu";
 import styled from "styled-components";
 
@@ -18,9 +18,15 @@ const Home = ({ menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
                     renderBody={({ Item }) => (
                         <>
                             <Item />
-                            <Item>{/* <About /> */}</Item>
-                            <Item>{/* <Menu {...menu} /> */}</Item>
-                            <Item>{/* <Access /> */}</Item>
+                            <Item>
+                                <About />
+                            </Item>
+                            <Item>
+                                <Menu {...menu} />
+                            </Item>
+                            <Item>
+                                <Access />
+                            </Item>
                         </>
                     )}
                 />
