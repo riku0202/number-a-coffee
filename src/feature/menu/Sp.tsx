@@ -1,49 +1,51 @@
 import { Container } from "src/components/container";
 import { List } from "src/components/list";
+import { Tab } from "src/components/tab";
 import { MicroCMSMenu } from "src/types/microCMSMenu";
 import styled from "styled-components";
 
-export const Sp = (props: MicroCMSMenu) => {
+export const Sp = (
+    props: Pick<MicroCMSMenu, "contents"> & Pick<Parameters<typeof Tab>[0] , "value"|'onChange'>,
+) => {
     return (
         <StyledContainer title="Menu">
-            <Content>
+            <TabContainer>
+                <Tab value={props.value} onChange={props.onChange} />
+            </TabContainer>
+            <ListContainer>
                 <List
                     renderItems={({ Subheader, ImageItem }) => (
                         <>
                             <Subheader key={"Menu"}>Menu</Subheader>
-
-                            {props.contents.map((content, index) => {
-                                return (
-                                    <ImageItem
-                                        key={index}
-                                        featured={content.isFeatured}
-                                        src={content.image.url}
-                                        title={content.name}
-                                        subTitle={content.description}
-                                        onClick={() =>
-                                            alert("click " + content.name)
-                                        }
-                                    />
-                                );
-                            })}
+                            {props.contents.map((content, index) => (
+                                <ImageItem
+                                    key={index}
+                                    featured={content.isFeatured}
+                                    src={content.image.url}
+                                    title={content.name}
+                                    subTitle={content.japaneseName}
+                                    onClick={() =>
+                                        alert("click " + content.name)
+                                    }
+                                />
+                            ))}
                         </>
                     )}
                 />
-            </Content>
+            </ListContainer>
         </StyledContainer>
     );
 };
 
 const StyledContainer = styled(Container)`
-    padding: 5px;
     width: 90vw;
 `;
 
-const Content = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    height: 400px;
+const TabContainer = styled.div`
+    width: 100%;
+`;
+
+const ListContainer = styled.div`
+    height: 60vh;
     width: 100%;
 `;
