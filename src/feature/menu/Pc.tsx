@@ -41,16 +41,3 @@ const Content = styled.div`
     height: 70vh;
     width: 100%;
 `;
-
-const ImageContainer = styled.div`
-    width: 100%;
-
-    img {
-        border-radius: 20px;
-    }
-`;
-
-const TextContainer = styled.div`
-    width: 100%;
-    text-align: center;
-`;

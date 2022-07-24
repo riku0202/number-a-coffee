@@ -36,7 +36,7 @@ export const Sp = (props: MicroCMSMenu) => {
 
 const StyledContainer = styled(Container)`
     padding: 5px;
-    width: 100%;
+    width: 90vw;
 `;
 
 const Content = styled.div`
@@ -46,17 +46,4 @@ const Content = styled.div`
     gap: 30px;
     height: 400px;
     width: 100%;
-`;
-
-const ImageContainer = styled.div`
-    width: 100%;
-
-    img {
-        border-radius: 20px;
-    }
-`;
-
-const TextContainer = styled.div`
-    width: 100%;
-    text-align: center;
 `;
