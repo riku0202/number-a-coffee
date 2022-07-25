@@ -5,7 +5,8 @@ import { MicroCMSMenu } from "src/types/microCMSMenu";
 import styled from "styled-components";
 
 export const Sp = (
-    props: Pick<MicroCMSMenu, "contents"> & Pick<Parameters<typeof Tab>[0] , "value"|'onChange'>,
+    props: Pick<MicroCMSMenu, "contents"> &
+        Pick<Parameters<typeof Tab>[0], "value" | "onChange">,
 ) => {
     return (
         <StyledContainer title="Menu">
@@ -46,6 +47,6 @@ const TabContainer = styled.div`
 `;
 
 const ListContainer = styled.div`
-    height: 60vh;
+    height: 40vh;
     width: 100%;
 `;

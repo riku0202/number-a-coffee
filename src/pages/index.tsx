@@ -46,7 +46,7 @@ const Style = styled.div`
     z-index: 2;
 
     .top-title {
-        height: 100vh;
+        height: 100%;
     }
 
     .body {
