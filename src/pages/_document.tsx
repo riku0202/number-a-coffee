@@ -24,6 +24,7 @@ export default class MyDocument extends Document {
     }
 }
 
+
 // const MyDocument = () => {
 //     const url = "<https://example.com>";
 //     const title = "Demo Next.js";
