@@ -15,7 +15,7 @@ export const Layout = (props: Props) => {
             </Head>
             <main>
                 <Background>
-                    <Video playsInline muted autoPlay loop>
+                    <Video preload="auto" playsInline muted autoPlay loop>
                         <source type="video/mp4" src="/numberA.mp4" />
                     </Video>
                     {isPc ? (
