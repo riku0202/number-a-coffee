@@ -41,7 +41,7 @@ const ImageItem = (props: ImageItemProps) => {
 
     return (
         <MUI.ImageListItem cols={cols} rows={rows}>
-            <MUI.CardActionArea>
+            <MUI.CardActionArea onClick={props.onClick}>
                 <Image
                     src={props.src}
                     layout="responsive"

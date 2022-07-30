@@ -11,7 +11,7 @@ export const parameters = {
         },
     },
     backgrounds: {
-        default: "black",
+        default: "gray",
         values: [
             {
                 name: "white",
@@ -20,6 +20,10 @@ export const parameters = {
             {
                 name: "black",
                 value: "black",
+            },
+            {
+                name: "gray",
+                value: "gray",
             },
             {
                 name: "twitter",
