@@ -1,4 +1,5 @@
 import LocalCafeIcon from "@mui/icons-material/LocalCafe";
+import LocalDrinkIcon from "@mui/icons-material/LocalDrink";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import * as MUI from "@mui/material";
 import styled from "styled-components";
@@ -22,7 +23,7 @@ export const Tab = (props: Props) => {
                 {...a11yProps(1)}
             />
             <MUI.Tab
-                icon={<LocalCafeIcon />}
+                icon={<LocalDrinkIcon />}
                 label={<Label>ColdDrink</Label>}
                 {...a11yProps(2)}
             />
