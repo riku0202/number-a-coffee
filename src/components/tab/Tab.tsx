@@ -18,13 +18,18 @@ export const Tab = (props: Props) => {
         >
             <MUI.Tab
                 icon={<LocalCafeIcon />}
-                label={<Label>coffee</Label>}
+                label={<Label>HotDrink</Label>}
                 {...a11yProps(1)}
             />
             <MUI.Tab
-                icon={<RestaurantIcon />}
-                label={<Label>food</Label>}
+                icon={<LocalCafeIcon />}
+                label={<Label>ColdDrink</Label>}
                 {...a11yProps(2)}
+            />
+            <MUI.Tab
+                icon={<RestaurantIcon />}
+                label={<Label>Food</Label>}
+                {...a11yProps(3)}
             />
         </MUI.Tabs>
     );
