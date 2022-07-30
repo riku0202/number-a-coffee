@@ -15,21 +15,26 @@ export const Pc = () => {
                     />
                 </MapContainer>
                 <TextContainer>
-                    <h3>Number A Coffee</h3>
-                    <p>住所</p>
-                    <p>
-                        〒436-0061
-                        <br />
-                        静岡県掛川市水垂936ｰ1
-                    </p>
-                    <p>営業時間</p>
-                    <p>
-                        平日9:00-17:00
-                        <br />
-                        土日祝7:30-17:00
-                    </p>
-                    <p>電話番号</p>
-                    <a href="tel:0537-28-7242">0537-28-7242</a>
+                    <section>
+                        <h4>住所</h4>
+                        <p>
+                            〒436-0061
+                            <br />
+                            静岡県掛川市水垂936ｰ1
+                        </p>
+                    </section>
+                    <section>
+                        <h4>営業時間</h4>
+                        <p>
+                            平日9:00-17:00
+                            <br />
+                            土日祝7:30-17:00
+                        </p>
+                    </section>
+                    <section>
+                        <h4>電話番号</h4>
+                        <a href="tel:0537-28-7242">0537-28-7242</a>
+                    </section>
                 </TextContainer>
             </Content>
         </StyledContainer>
@@ -56,4 +61,6 @@ const MapContainer = styled.div`
 const TextContainer = styled.div`
     width: 100%;
     text-align: center;
+    display: grid;
+    row-gap: 25px;
 `;
