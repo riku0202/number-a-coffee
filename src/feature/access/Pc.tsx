@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Pc = () => {
     return (
-        <StyledContainer title="About">
+        <StyledContainer title="Access">
             <Content>
                 <MapContainer>
                     <iframe
