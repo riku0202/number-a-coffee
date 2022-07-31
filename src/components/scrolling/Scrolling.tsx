@@ -18,6 +18,7 @@ const Container = styled.div`
 
     .chevron {
         position: absolute;
+        top: 10px;
         width: 28px;
         height: 8px;
         opacity: 0;

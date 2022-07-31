@@ -37,5 +37,5 @@ const Item = styled.div`
 const ScrollingWrap = styled.div`
     position: fixed;
     left: 50px;
-    bottom: 100px;
+    bottom: 80px;
 `;
