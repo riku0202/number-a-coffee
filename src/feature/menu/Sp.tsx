@@ -121,12 +121,11 @@ const Heading = styled.h3`
 `;
 
 const Body = styled.p`
-    margin-top: 30px;
+    margin: 20px 0;
     font-size: 1rem;
 `;
 
 const Price = styled.p`
-    margin-top: 10px;
     font-weight: bold;
     text-align: right;
 `;
