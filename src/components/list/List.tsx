@@ -56,7 +56,7 @@ const ImageItem = (props: ImageItemProps) => {
                     subtitle={props.subTitle}
                     sx={{
                         ".MuiImageListItemBar-titleWrap": {
-                            padding: "0 1vw",
+                            padding: "0.5vw 1vw",
                         },
                         ".MuiImageListItemBar-title": {
                             fontSize: "0.8rem",
