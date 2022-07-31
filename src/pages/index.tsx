@@ -17,7 +17,7 @@ const Home = ({ menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <ScrollSnapLayout
                     renderBody={({ Item }) => (
                         <>
-                            <Item />
+                            <Item></Item>
                             <Item>
                                 <About />
                             </Item>

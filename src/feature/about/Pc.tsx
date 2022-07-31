@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 export const Pc = () => {
     return (
+        <>
         <StyledContainer title="About">
             <Content>
                 <TextContainer>
@@ -31,6 +32,7 @@ export const Pc = () => {
                 </ImageContainer>
             </Content>
         </StyledContainer>
+        </>
     );
 };
 

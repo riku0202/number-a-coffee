@@ -18,6 +18,7 @@ export const Layout = (props: Props) => {
                     <Video preload="auto" playsInline muted autoPlay loop>
                         <source type="video/mp4" src="/numberA.mp4" />
                     </Video>
+                    <OverLay/>
                     {isPc ? (
                         <Title>Number A Coffee</Title>
                     ) : (
@@ -50,6 +51,13 @@ const Video = styled.video`
     transform: translate(-50%, -50%);
 `;
 
+const OverLay = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+`;
+
 const Title = styled.h1`
     text-align: center;
     position: absolute;
@@ -58,6 +66,7 @@ const Title = styled.h1`
     transform: translate(-50%, -50%);
     font-size: 4rem;
     white-space: nowrap;
+    color: white;
 `;
 
 const TitleSP = styled.h1`
@@ -67,4 +76,5 @@ const TitleSP = styled.h1`
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 4rem;
+    color: white;
 `;
