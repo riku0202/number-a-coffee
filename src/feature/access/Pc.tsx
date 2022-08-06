@@ -7,11 +7,12 @@ export const Pc = () => {
             <Content>
                 <MapContainer>
                     <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.549313999379!2d138.02546375083418!3d34.79211948572804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601af909253d8bff%3A0xff0a0c6917eac090!2sNumber%20A%20coffee!5e0!3m2!1sja!2sjp!4v1659802293476!5m2!1sja!2sjp"
                         width="100%"
                         height={500}
-                        loading="lazy"
                         allowFullScreen
-                        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_4s9JQn5GmARkMDqF2kMCv8&key=AIzaSyAHuqkRtWban5qZEqO6sUWyw1Z__A8XDBI"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
                     />
                 </MapContainer>
                 <TextContainer>
