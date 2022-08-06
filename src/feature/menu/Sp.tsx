@@ -34,8 +34,7 @@ export const Sp = (
                                                 key={index}
                                                 featured={content.isFeatured}
                                                 src={content.image.url}
-                                                title={content.name}
-                                                subTitle={content.japaneseName}
+                                                title={content.japaneseName}
                                                 onClick={() => {
                                                     setContent(content);
                                                     setToggle(true);

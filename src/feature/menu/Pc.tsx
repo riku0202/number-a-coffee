@@ -34,8 +34,7 @@ export const Pc = (
                                                 key={index}
                                                 featured={content.isFeatured}
                                                 src={content.image.url}
-                                                title={content.name}
-                                                subTitle={content.japaneseName}
+                                                title={content.japaneseName}
                                                 onClick={() => {
                                                     setContent(content);
                                                     setToggle(true);
@@ -126,8 +125,8 @@ const Body = styled.p`
 `;
 
 const Price = styled.p`
-margin-top: 10px;
-font-weight: bold;
+    margin-top: 10px;
+    font-weight: bold;
     text-align: right;
 `;
 

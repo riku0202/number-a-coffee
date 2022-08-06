@@ -27,7 +27,6 @@ export const Primary: ComponentStoryObj<typeof List> = {
                             featured={item.featured}
                             src={item.img}
                             title={item.title}
-                            subTitle={item.author}
                             onClick={() => alert("click " + item.title)}
                         />
                     );

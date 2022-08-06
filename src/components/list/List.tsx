@@ -32,7 +32,6 @@ type ImageItemProps = {
     key: number;
     featured?: boolean;
     title: string;
-    subTitle: string;
 } & Pick<React.ComponentProps<typeof MUI.CardActionArea>, "onClick"> &
     Pick<React.ComponentProps<typeof Image>, "src">;
 const ImageItem = (props: ImageItemProps) => {
@@ -53,17 +52,12 @@ const ImageItem = (props: ImageItemProps) => {
                 />
                 <MUI.ImageListItemBar
                     title={props.title}
-                    subtitle={props.subTitle}
                     sx={{
                         ".MuiImageListItemBar-titleWrap": {
                             padding: "0.5vw 1vw",
                         },
                         ".MuiImageListItemBar-title": {
                             fontSize: "0.8rem",
-                            lineHeight: "unset",
-                        },
-                        ".MuiImageListItemBar-subtitle": {
-                            fontSize: "0.6rem",
                             lineHeight: "unset",
                         },
                     }}
