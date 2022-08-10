@@ -12,8 +12,8 @@ const List = styled.div`
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     width: 100vw;
-    height: 100vh; /* Fallback */
     height: calc(var(--vh, 1vh) * 100);
+    height: 100vh; /* Fallback */
 `;
 
 const Item = styled.div`
@@ -23,5 +23,4 @@ const Item = styled.div`
     height: calc(var(--vh, 1vh) * 100);
     display: grid;
     place-items: center;
-    margin: 100px 0;
 `;
