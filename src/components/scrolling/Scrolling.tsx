@@ -3,39 +3,26 @@ import styled from "styled-components";
 export const Scrolling = () => {
     return (
         <Container>
-            <div className="chevron"></div>
-            <div className="chevron"></div>
-            <div className="chevron"></div>
-            <span className="text">Scroll down</span>
+            <FirstChild />
+            <SecondChild />
+            <BaseChild />
+            <Text>Scroll down</Text>
         </Container>
     );
 };
 
-const Container = styled.div`
-    position: relative;
-    width: 100%;
-    height: 100%;
+const BaseChild = styled.div`
+    position: absolute;
+    top: 15px;
+    left: 30%;
+    width: 28px;
+    height: 8px;
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+    animation: move 3s ease-out infinite;
 
-    .chevron {
-        position: absolute;
-        top: 10px;
-        width: 28px;
-        height: 8px;
-        opacity: 0;
-        transform: scale3d(0.5, 0.5, 0.5);
-        animation: move 3s ease-out infinite;
-    }
-
-    .chevron:first-child {
-        animation: move 3s ease-out 1s infinite;
-    }
-
-    .chevron:nth-child(2) {
-        animation: move 3s ease-out 2s infinite;
-    }
-
-    .chevron:before,
-    .chevron:after {
+    &:before,
+    &:after {
         content: " ";
         position: absolute;
         top: 0;
@@ -44,16 +31,37 @@ const Container = styled.div`
         background: #fff;
     }
 
-    .chevron:before {
+    &:before {
         left: 0;
         transform: skew(0deg, 30deg);
     }
 
-    .chevron:after {
+    &:after {
         right: 0;
         width: 50%;
         transform: skew(0deg, -30deg);
     }
+`;
+
+const FirstChild = styled(BaseChild)`
+    animation: move 3s ease-out 1s infinite;
+`;
+
+const SecondChild = styled(BaseChild)`
+    animation: move 3s ease-out 2s infinite;
+`;
+
+const Text = styled.p`
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.25;
+    animation: pulse 2s linear alternate infinite;
+`;
+
+const Container = styled.div`
+    position: relative;
+    width: 100%;
+    height: 100%;
 
     @keyframes move {
         25% {
@@ -71,18 +79,6 @@ const Container = styled.div`
             opacity: 0;
             transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
         }
-    }
-
-    .text {
-        display: block;
-        margin-top: 75px;
-        margin-left: -30px;
-        font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-        font-size: 12px;
-        color: #fff;
-        white-space: nowrap;
-        opacity: 0.25;
-        animation: pulse 2s linear alternate infinite;
     }
 
     @keyframes pulse {

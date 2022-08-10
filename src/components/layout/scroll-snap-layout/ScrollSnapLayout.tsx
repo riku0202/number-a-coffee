@@ -1,4 +1,3 @@
-import { Scrolling } from "src/components/scrolling";
 import styled from "styled-components";
 
 type Props = {
@@ -6,14 +5,7 @@ type Props = {
 };
 
 export const ScrollSnapLayout = (props: Props) => {
-    return (
-        <List>
-            <ScrollingWrap>
-                <Scrolling />
-            </ScrollingWrap>
-            {props.renderBody({ Item: Item })}
-        </List>
-    );
+    return <List>{props.renderBody({ Item: Item })}</List>;
 };
 
 const List = styled.div`
@@ -32,10 +24,4 @@ const Item = styled.div`
     display: grid;
     place-items: center;
     margin: 100px 0;
-`;
-
-const ScrollingWrap = styled.div`
-    position: fixed;
-    left: 50px;
-    bottom: 80px;
 `;

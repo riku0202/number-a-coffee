@@ -1,5 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import Head from "next/head";
+import { Scrolling } from "src/components/scrolling";
 import styled from "styled-components";
 
 type Props = {
@@ -18,7 +19,7 @@ export const Layout = (props: Props) => {
                     <Video preload="auto" playsInline muted autoPlay loop>
                         <source type="video/mp4" src="/numberA.mp4" />
                     </Video>
-                    <OverLay/>
+                    <OverLay />
                     {isPc ? (
                         <Title>Number A Coffee</Title>
                     ) : (
@@ -29,11 +30,20 @@ export const Layout = (props: Props) => {
                         </TitleSP>
                     )}
                 </Background>
+                <ScrollingWrap>
+                    <Scrolling />
+                </ScrollingWrap>
                 {props.children}
             </main>
         </>
     );
 };
+
+const ScrollingWrap = styled.div`
+    position: fixed;
+    left: 30px;
+    bottom: 80px;
+`;
 
 const Background = styled.div`
     position: fixed;
