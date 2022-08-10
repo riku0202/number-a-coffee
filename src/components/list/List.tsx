@@ -11,7 +11,7 @@ type Props = {
 export const List = (props: Props) => {
     return (
         <>
-            <MUI.ImageList sx={{ width: "100%", height: "100%" }} cols={4}>
+            <MUI.ImageList sx={{ width: "100%", height: "100%" }} cols={3}>
                 {props.renderItems({
                     ImageItem: ImageItem,
                     Subheader: Subheader,
@@ -35,11 +35,8 @@ type ImageItemProps = {
 } & Pick<React.ComponentProps<typeof MUI.CardActionArea>, "onClick"> &
     Pick<React.ComponentProps<typeof Image>, "src">;
 const ImageItem = (props: ImageItemProps) => {
-    const cols = props.featured ? 2 : 1;
-    const rows = props.featured ? 2 : 1;
-
     return (
-        <MUI.ImageListItem cols={cols} rows={rows}>
+        <MUI.ImageListItem cols={1} rows={1}>
             <MUI.CardActionArea onClick={props.onClick}>
                 <Image
                     src={props.src}

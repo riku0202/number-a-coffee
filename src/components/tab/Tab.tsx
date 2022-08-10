@@ -18,6 +18,11 @@ export const Tab = (props: Props) => {
             variant="fullWidth"
         >
             <MUI.Tab
+                sx={{
+                    ".MuiTab-labelIcon": {
+                        height: "5rem",
+                    },
+                }}
                 icon={<LocalCafeIcon />}
                 label={<Label>HotDrink</Label>}
                 {...a11yProps(1)}
