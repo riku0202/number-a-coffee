@@ -20,10 +20,7 @@ const List = styled.div`
 const Item = styled.div`
     scroll-snap-align: start;
     width: 100%;
-    /* Fallback */
     height: 100%;
-    /* height: 100vh;
-    height: calc(var(--vh, 1vh) * 100); */
     display: grid;
     place-items: center;
 `;
