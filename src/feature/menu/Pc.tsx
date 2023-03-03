@@ -13,7 +13,7 @@ export const Pc = (
 ) => {
     const [toggle, setToggle] = React.useState(false);
     const [content, setContent] = React.useState<
-        typeof props["contents"][number] | null
+        (typeof props)["contents"][number] | null
     >(null);
 
     return (
@@ -22,6 +22,7 @@ export const Pc = (
                 <TabContainer>
                     <Tab value={props.value} onChange={props.onChange} />
                 </TabContainer>
+
                 <ListContainer>
                     <List
                         renderItems={({ Subheader, ImageItem }) => (
