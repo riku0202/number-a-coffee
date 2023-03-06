@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.number-a-coffee.com
+
+# Sitemaps
+Sitemap: https://www.number-a-coffee.com/sitemap.xml
