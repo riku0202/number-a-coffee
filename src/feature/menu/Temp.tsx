@@ -1,3 +1,4 @@
+import Image from "next/image";
 import * as React from "react";
 import { Container } from "src/components/container";
 import styled from "styled-components";
@@ -13,13 +14,17 @@ export const ImageList = (props: Props) => {
             <ImageListContainer ref={containerRef}>
                 {props.images.map((image, index) => (
                     <ImageContainer key={index}>
-                        <Image src={image} alt="image" />
+                        <StyledImage src={image} alt="image" fill />
                     </ImageContainer>
                 ))}
             </ImageListContainer>
         </StyledContainer>
     );
 };
+
+const StyledImage = styled(Image)`
+    object-fit: contain;
+`;
 
 const ImageListContainer = styled.div`
     width: 100%;
@@ -31,17 +36,14 @@ const ImageListContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-    height: 100%;
+    position: relative;
+    height: 500px;
     width: 100%;
     display: flex;
     justify-content: center;
     flex: 0 0 auto;
     scroll-snap-align: start;
-    margin-right: 16px;
-`;
-
-const Image = styled.img`
-    height: 500px;
+    margin: 0 40px;
 `;
 
 const StyledContainer = styled(Container)`

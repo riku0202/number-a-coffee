@@ -42,11 +42,7 @@ export const Menu = (props: MicroCMSMenu) => {
     //         )}
     //     </>
     // );
-    const IMAGES = [
-        "https://mizuumi.jp/wp-content/uploads/2022/06/c1e96075b203e8abd7b1d90b59701013-768x1086.jpg",
-        "https://www.sapeur-cafe.com/wp-content/uploads/2021/10/sapeur_menu.jpg",
-        "https://favoritecoffee.jp/wp-content/uploads/2023/04/may1.jpg",
-    ];
+    const IMAGES = ["/menu01.jpg", "/menu02.jpg"];
 
     return <ImageList images={IMAGES} />;
 };
