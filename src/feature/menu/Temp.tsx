@@ -14,7 +14,12 @@ export const ImageList = (props: Props) => {
             <ImageListContainer ref={containerRef}>
                 {props.images.map((image, index) => (
                     <ImageContainer key={index}>
-                        <StyledImage src={image} alt="image" fill />
+                        <Image
+                            src={image}
+                            alt="image"
+                            fill
+                            style={{ objectFit: "contain" }}
+                        />
                     </ImageContainer>
                 ))}
             </ImageListContainer>
@@ -22,9 +27,9 @@ export const ImageList = (props: Props) => {
     );
 };
 
-const StyledImage = styled(Image)`
-    object-fit: contain;
-`;
+// const StyledImage = styled(Image)`
+//     object-fit: contain;
+// `;
 
 const ImageListContainer = styled.div`
     width: 100%;
