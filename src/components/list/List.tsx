@@ -45,7 +45,7 @@ const ImageItem = (props: ImageItemProps) => {
                     height={500}
                     objectFit="cover"
                     alt={props.title}
-                    loading="lazy"
+                    loading="eager"
                 />
                 <MUI.ImageListItemBar
                     title={props.title}

@@ -33,8 +33,8 @@ export const Sp = () => {
                         width="100%"
                         height={200}
                         allowFullScreen
-                        loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
+                        loading="eager"
                     />
                 </MapContainer>
             </Content>

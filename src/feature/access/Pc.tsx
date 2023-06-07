@@ -11,7 +11,6 @@ export const Pc = () => {
                         width="100%"
                         height={500}
                         allowFullScreen
-                        loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                     />
                 </MapContainer>

@@ -9,10 +9,17 @@ import { MicroCMSMenu } from "src/types/microCMSMenu";
 import styled from "styled-components";
 
 const Home = ({ menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
+    // const [isVisible, setIsVisible] = useState(false);
+
+    // useEffect(() => {
+    //     setIsVisible(true);
+    // }, []);
+
     if (!menu) throw new Error("news is undefined");
 
     return (
         <>
+            {/* <Cup isVisible={isVisible}>☕</Cup> */}
             <Style>
                 <ScrollSnapLayout
                     renderBody={({ Item }) => (
@@ -85,3 +92,16 @@ export const getStaticProps = async () => {
         revalidate: 3600,
     };
 };
+
+// // アニメーションの定義
+// const fillCup = keyframes`
+//   0% { transform: translateY(100%); }
+//   100% { transform: translateY(0); }
+// `;
+
+// // スタイル付きコンポーネントの定義
+// const Cup = styled.div<{ isVisible: boolean }>`
+//     font-size: 100px;
+//     animation: ${fillCup} 2s ease-in-out;
+//     display: ${(props) => (props.isVisible ? "block" : "none")};
+// `;
