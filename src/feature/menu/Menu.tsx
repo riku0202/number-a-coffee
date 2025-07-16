@@ -42,7 +42,7 @@ export const Menu = (props: MicroCMSMenu) => {
     //         )}
     //     </>
     // );
-    const IMAGES = ["/menu_1.jpeg", "/menu_2.jpeg","/menu_3.jpeg","/menu_4.jpeg"];
+    const images = props.contents.map((content) => content.menu.url);
 
-    return <ImageList images={IMAGES} />;
+    return <ImageList images={images} />;
 };

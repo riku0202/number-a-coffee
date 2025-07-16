@@ -76,7 +76,7 @@ export const getStaticProps = async () => {
         };
 
     const menuRes = await fetch(
-        "https://number-a-coffee.microcms.io/api/v1/menu",
+        "https://number-a-coffee.microcms.io/api/v1/menus",
         {
             headers: {
                 "X-API-KEY": api,
