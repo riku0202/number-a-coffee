@@ -33,9 +33,8 @@ export const Pc = (
                                         <>
                                             <ImageItem
                                                 key={index}
-                                                featured={content.isFeatured}
-                                                src={content.image.url}
-                                                title={content.japaneseName}
+                                                src={content.menu.url}
+                                                title={content.id}
                                                 onClick={() => {
                                                     setContent(content);
                                                     setToggle(true);
@@ -81,19 +80,11 @@ const SubComponent = (props: {
                     layout="responsive"
                     objectFit="cover"
                     alt="image"
-                    src={props.content.image.url}
-                    height={props.content.image.height}
-                    width={props.content.image.width}
+                    src={props.content.menu.url}
+                    height={props.content.menu.height}
+                    width={props.content.menu.width}
                 />
             </ImageContainer>
-            <TextContainer>
-                <JapaneseHeading>{props.content.japaneseName}</JapaneseHeading>
-                <Heading>{props.content.name}</Heading>
-                <Body>
-                    <p>{props.content.description}</p>
-                    <Price>￥{props.content.price}</Price>
-                </Body>
-            </TextContainer>
         </ModalContainer>
     );
 };
