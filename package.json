@@ -2,6 +2,9 @@
     "name": "number-a-coffee",
     "version": "0.1.0",
     "private": true,
+    "engines": {
+        "node": "24.x"
+    },
     "scripts": {
         "dev": "next dev",
         "lint": "eslint src --ext .ts,tsx && prettier --write src",

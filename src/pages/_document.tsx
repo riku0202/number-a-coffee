@@ -30,9 +30,31 @@ export default class MyDocument extends Document {
     }
 
     render() {
+        // デザイン違いのページ（/roast など）だけ専用の見た目とフォントを読み込む
+        const look: string | undefined =
+            this.props.__NEXT_DATA__.props?.pageProps?.look;
+
         return (
-            <Html lang="ja">
+            <Html lang="ja" data-look={look}>
                 <Head>
+                    {look && (
+                        <>
+                            <link
+                                rel="preconnect"
+                                href="https://fonts.googleapis.com"
+                            />
+                            <link
+                                rel="preconnect"
+                                href="https://fonts.gstatic.com"
+                                crossOrigin="anonymous"
+                            />
+                            <link
+                                rel="stylesheet"
+                                href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Kaisei+Tokumin:wght@700;800&family=Shippori+Mincho+B1:wght@500;700&family=Space+Mono:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+                            />
+                            <link rel="stylesheet" href="/looks/looks.css" />
+                        </>
+                    )}
                     <meta
                         name="viewport"
                         content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no"
